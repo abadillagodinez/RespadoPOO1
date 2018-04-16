@@ -12,7 +12,7 @@ import java.util.*;
  * @author retr0
  */
 public class Counter {
-    ArrayList<Cliente> clientes = new ArrayList<>();
+    ArrayList<Cliente> clientes;
     ArrayList<Casillero> casilleros;
     int cantidadCasilleros;
     ArrayList<ArrayList<String>> Reporte=new ArrayList<>();
@@ -20,6 +20,7 @@ public class Counter {
     public Counter(int cantidadCasilleros) {
         setCantidadCasilleros(cantidadCasilleros);
         casilleros = new ArrayList<>(this.cantidadCasilleros);
+        clientes = new ArrayList<>(cantidadCasilleros);
     }
 
     /**

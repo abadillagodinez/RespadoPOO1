@@ -74,6 +74,11 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         });
 
         btnModificarCliente.setText("Modificar Cliente");
+        btnModificarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarClienteActionPerformed(evt);
+            }
+        });
 
         btnConsultarCliente.setText("Consultar Cliente");
         btnConsultarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -402,12 +407,18 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 }
             }
             ConsultarCliente ventana = new ConsultarCliente(nombre, id, datos);
-            ventana.show();
+            ventana.show(true);
         }
         else{
             JOptionPane.showMessageDialog(this, "Debe seleccionar un cliente de la lista", "Error", 1);
         }
     }//GEN-LAST:event_btnConsultarClienteActionPerformed
+
+    private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed
+        // TODO add your handling code here:
+        ModificarCliente ventana = new ModificarCliente(counter.getClientes());
+        ventana.show(true);
+    }//GEN-LAST:event_btnModificarClienteActionPerformed
 
     /**
      * 
