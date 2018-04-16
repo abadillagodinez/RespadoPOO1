@@ -15,7 +15,7 @@ public class Counter {
     ArrayList<Cliente> clientes = new ArrayList<>();
     ArrayList<Casillero> casilleros;
     int cantidadCasilleros;
-    ArrayList<String[]> Reporte=new ArrayList<>();
+    ArrayList<ArrayList<String>> Reporte=new ArrayList<>();
 
     public Counter(int cantidadCasilleros) {
         setCantidadCasilleros(cantidadCasilleros);
