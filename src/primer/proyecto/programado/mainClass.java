@@ -25,9 +25,9 @@ public class mainClass {
         System.out.println(revistica.toString());
         System.out.println(sobrecito.calcularImpuesto());*/
         Counter count = new Counter(24);
-        String destinatario = "azofeifacris4@gmail.com";
+        /*String destinatario = "azofeifacris4@gmail.com";
         String asunto = "Holi yiyo";
-        String cuerpo = "Puedo mandar un correo desde java";
+        String cuerpo = "Puedo mandar un correo desde java";*/
         //count.enviarConGMail(destinatario, asunto, cuerpo);
         new MenuInicio().setVisible(true);
     }

@@ -160,13 +160,57 @@ public abstract class Entregable {
         String dato=date.toString();
         String[] moreDate=dato.split(" ");
         String dia=moreDate[2];
-        String mes=moreDate[1];
+        String mes=identificarMes(moreDate[1]);
         String anio=moreDate[moreDate.length-1];
         String hora=moreDate[3];
         this.fechaEntrega=dia+"/"+mes+"/"+anio;
         this.horaEntrega=hora;
     }
     
+    public String identificarMes(String s){
+        int i=0;
+        if(null != s.toLowerCase())switch (s.toLowerCase()) {
+            case "jan":
+                i= 1;
+                break;
+            case "feb":
+                i= 2;
+                break;
+            case "mar":
+                i= 3;
+                break;
+            case "apr":
+                i= 4;
+                break;
+            case "may":
+                i= 5;
+                break;
+            case "jun":
+                i= 6;
+                break;
+            case "jul":
+                i= 7;
+                break;
+            case "ago":
+                i= 8;
+                break;
+            case "sep":
+                i= 9;
+                break;
+            case "oct":
+                i= 10;
+                break;
+            case "nov":
+                i= 11;
+                break;
+            case "dec":
+                i= 12;
+                break;
+            default:
+                break;
+        }
+        return String.valueOf(i);
+    }
     /**
      *metodo abstracto de calculo de impuesto en los hijos
      * @return 
