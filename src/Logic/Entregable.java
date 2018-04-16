@@ -40,7 +40,7 @@ public abstract class Entregable {
         Date date=fecha.getTime();
         String d=date.toString();
         String[] d2=d.split(" ");
-        this.fechaRecepcion=d2[2]+"/"+d2[1]+"/"+d2[d2.length-1];
+        this.fechaRecepcion=d2[2]+"/"+identificarMes(d2[1])+"/"+d2[d2.length-1];
     }
     
     /**
@@ -211,6 +211,7 @@ public abstract class Entregable {
         }
         return String.valueOf(i);
     }
+    
     /**
      *metodo abstracto de calculo de impuesto en los hijos
      * @return 
