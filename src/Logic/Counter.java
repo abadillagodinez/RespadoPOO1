@@ -72,7 +72,7 @@ public class Counter {
         this.cantidadCasilleros = cantidadCasilleros;
     }
     
-    public void registrarCliente(String nombre, String correo, int telefono, String direccion, String sexo, String fechaNacimiento, Tipo tipo){
+    public void registrarCliente(String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento, Tipo tipo){
         if(clientes.size() < cantidadCasilleros){
             Cliente nuevo = new Cliente(nombre, correo, telefono, direccion, sexo, fechaNacimiento, tipo);
             clientes.add(nuevo);

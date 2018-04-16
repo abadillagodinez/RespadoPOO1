@@ -5,6 +5,8 @@
  */
 package Logic;
 
+import java.awt.PopupMenu;
+
 /**
  *
  * @author retr0
@@ -14,7 +16,7 @@ public class Cliente {
     private int idCliente;
     private String nombre;
     private String correo;
-    private int telefono;
+    private String telefono;
     private String direccion;
     private String sexo;
     private String fechaNacimiento;
@@ -31,7 +33,7 @@ public class Cliente {
      * @param fechaNacimiento
      * @param tipo 
      */
-    public Cliente(String nombre, String correo, int telefono, String direccion, String sexo, String fechaNacimiento, Tipo tipo) {
+    public Cliente(String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento, Tipo tipo) {
         idCliente = cantidadClientes;
         this.nombre = nombre;
         this.correo = correo;
@@ -103,7 +105,7 @@ public class Cliente {
      * 
      * @return el numero de telefono
      */
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -111,7 +113,7 @@ public class Cliente {
      * setter del telefono
      * @param telefono 
      */
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -208,7 +210,13 @@ public class Cliente {
         msg += "\t" + "Tipo: " + tipo.name() + "\n";
         return msg;
     }
-    
-    
+
+    public String toLst() {
+        String msg = "";
+        msg += "ID: " + idCliente + "    ";
+        msg += "Nombre: " + nombre + "    ";
+        msg += "Correo: " + correo;
+        return msg;
+    }    
     
 }
