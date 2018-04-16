@@ -14,8 +14,10 @@ public class ConsultarCliente extends javax.swing.JFrame {
     /**
      * Creates new form ConsultarCliente
      */
-    public ConsultarCliente() {
+    public ConsultarCliente(String nombre, String id, String datos) {
         initComponents();
+        pnlConsulta.setBorder(javax.swing.BorderFactory.createTitledBorder(id + " " + nombre));
+        txfDatos.setText(datos);
     }
 
     public javax.swing.JPanel getPanel(){
@@ -31,20 +33,33 @@ public class ConsultarCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlConsulta = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txfDatos = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pnlConsulta.setBorder(javax.swing.BorderFactory.createTitledBorder("Consulta del cliente"));
+
+        txfDatos.setEditable(false);
+        txfDatos.setColumns(20);
+        txfDatos.setRows(5);
+        jScrollPane1.setViewportView(txfDatos);
 
         javax.swing.GroupLayout pnlConsultaLayout = new javax.swing.GroupLayout(pnlConsulta);
         pnlConsulta.setLayout(pnlConsultaLayout);
         pnlConsultaLayout.setHorizontalGroup(
             pnlConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 378, Short.MAX_VALUE)
+            .addGroup(pnlConsultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlConsultaLayout.setVerticalGroup(
             pnlConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
+            .addGroup(pnlConsultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -73,6 +88,8 @@ public class ConsultarCliente extends javax.swing.JFrame {
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlConsulta;
+    private javax.swing.JTextArea txfDatos;
     // End of variables declaration//GEN-END:variables
 }

@@ -328,7 +328,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "El numero de telefono no tiene un formato adecuado", "Error", 1);
             }
             else if(!isPosibleToInsert()){
-                JOptionPane.showMessageDialog(this, "Los casilleros ya estan llenos", "Error", 1);
+                JOptionPane.showMessageDialog(this, "Ya no hay casilleros disponible", "Error", 1);
             }
             else{
                 Cliente aInsertar = new Cliente(nombre, correo, telefono, direccion, sexo, fecha);
@@ -391,14 +391,17 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
     private void btnConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarClienteActionPerformed
         // TODO add your handling code here:
         if(lstClientes.getSelectedIndex() != -1){
-            ConsultarCliente ventana = new ConsultarCliente();
             String nombre = "";
+            String id = "";
+            String datos = "";
             for(int i = 0; i <= lstClientes.getSelectedIndex(); i++){
                 if(i == lstClientes.getSelectedIndex()){
                     nombre = counter.getClientes().get(i).getNombre();
+                    id = counter.getClientes().get(i).getIdCliente();
+                    datos = counter.getClientes().get(i).toString();
                 }
             }
-            ventana.getPanel().setBorder(javax.swing.BorderFactory.createTitledBorder("Consulta del cliente " + nombre));
+            ConsultarCliente ventana = new ConsultarCliente(nombre, id, datos);
             ventana.show();
         }
         else{

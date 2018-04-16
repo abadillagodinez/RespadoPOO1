@@ -27,7 +27,6 @@ public class Cliente {
     public Cliente(){
         
     }
-//hola que hace
     /**
      * constructor de la clase
      * @param nombre
@@ -39,6 +38,7 @@ public class Cliente {
      * @param tipo 
      */
     public Cliente(String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento) {
+        cantidadClientes++;
         idCliente = String.valueOf(cantidadClientes);
         this.nombre = nombre;
         this.correo = correo;
@@ -47,7 +47,6 @@ public class Cliente {
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
         this.tipo = Tipo.NORMAL;
-        cantidadClientes++;
     }
 
     /**
