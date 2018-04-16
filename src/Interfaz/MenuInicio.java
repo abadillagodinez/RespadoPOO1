@@ -76,14 +76,14 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void btnCrearCounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCounterActionPerformed
         String numeroCasilleros = txfNumCasi.getText();
-        if(isInteger(numeroCasilleros)){
+        if(isInteger(numeroCasilleros) && Integer.parseInt(numeroCasilleros) > 0){
            Counter counter = new Counter(Integer.parseInt(numeroCasilleros));
            MenuFuncionalidades menu = new MenuFuncionalidades(counter);
            menu.setVisible(true);
            dispose();
         }
         else{
-            JOptionPane.showMessageDialog(this, "Ingrese un valor entero", "Error", 1);
+            JOptionPane.showMessageDialog(this, "Ingrese un valor entero o mayor a 0", "Error", 1);
         }
     }//GEN-LAST:event_btnCrearCounterActionPerformed
 

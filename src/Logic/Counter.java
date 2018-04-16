@@ -6,22 +6,19 @@
 package Logic;
 
 import java.util.*;
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 /**
  *
  * @author retr0
  */
 public class Counter {
-    ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+    ArrayList<Cliente> clientes = new ArrayList<>();
     ArrayList<Casillero> casilleros;
     int cantidadCasilleros;
 
     public Counter(int cantidadCasilleros) {
         setCantidadCasilleros(cantidadCasilleros);
-        casilleros = new ArrayList<Casillero>(cantidadCasilleros);
+        casilleros = new ArrayList<>(this.cantidadCasilleros);
     }
 
     /**
@@ -72,56 +69,176 @@ public class Counter {
         this.cantidadCasilleros = cantidadCasilleros;
     }
     
-    public void registrarCliente(String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento, Tipo tipo){
+    public void registrarCliente(String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento){
         if(clientes.size() < cantidadCasilleros){
-            Cliente nuevo = new Cliente(nombre, correo, telefono, direccion, sexo, fechaNacimiento, tipo);
+            Cliente nuevo = new Cliente(nombre, correo, telefono, direccion, sexo, fechaNacimiento);
             clientes.add(nuevo);
         }
         else{
-            System.out.println("No se puede registrar el cliente");
+            System.out.println("No quedan casilleros disponibles");
         }
     }
     
-    /*
-    public void modificarCliente(int pos, ){
-        for(int i = 0; i < clientes.size(); i++){
-            if (i == pos){
-                
+    public void eliminarCliente(String idCliente){
+        for(int i=0; clientes.size()>i;i++){
+            if(clientes.get(i).getIdCliente().equals(idCliente)){
+                clientes.remove(i);
+                System.out.println("Cliente eliminado");
             }
         }
-    }*/
+    }
     
-     public static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
-    // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
-        String remitente = "adriangazubg7@gmail.com";  //Para la dirección nomcuenta@gmail.com
-        String clave = "OLYOLYOXENFREE";
-
-        Properties props = System.getProperties();
-        props.put("mail.smtp.host", "smtp.gmail.com");  //El servidor SMTP de Google
-        props.put("mail.smtp.user", remitente);
-        props.put("mail.smtp.clave", clave);    //La clave de la cuenta
-        props.put("mail.smtp.auth", "true");    //Usar autenticación mediante usuario y clave
-        props.put("mail.smtp.starttls.enable", "true"); //Para conectar de manera segura al servidor SMTP
-        props.put("mail.smtp.port", "587"); //El puerto SMTP seguro de Google
-
-        Session session = Session.getDefaultInstance(props);
-        MimeMessage message = new MimeMessage(session);
-
-        try {
-            message.setFrom(new InternetAddress(remitente));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));   //Se podrían añadir varios de la misma manera
-            message.setSubject(asunto);
-            message.setText(cuerpo);
-            Transport transport = session.getTransport("smtp");
-            transport.connect("smtp.gmail.com", remitente, clave);
-            transport.sendMessage(message, message.getAllRecipients());
-            transport.close();
-            System.out.println("Se envió exitosamente\n");
-        }
-        catch (MessagingException me) {
-            me.printStackTrace();   //Si se produce un error
+    public void consultarCliente(String idCliente){
+        Cliente cliente=selecionarCliente(idCliente);
+        if("0".equals(cliente.getIdCliente())){
+            System.out.println("Cliente no encontrado");
+        }else{
+            System.out.println(cliente.toString());
         }
     }
     
+    public void consultarClientes(){
+        for(int i=0;clientes.size()>i;i++){
+            System.out.println(clientes.get(i).toString());
+        }
+    }
+    
+    public Cliente selecionarCliente(String idCliente ){
+        boolean encontrado=false;
+        Cliente cliente=new Cliente();
+        for(int i=0;clientes.size()>i;i++){
+            if(clientes.get(i).getIdCliente().equals(idCliente)){
+                encontrado=true;
+                cliente= clientes.get(i);
+                break;
+            }
+        }
+        if(!encontrado){
+            cliente=clientes.get(0);
+        }
+        return cliente;
+    }
+    
+    public void enviarCorreo(Cliente cliente){
+        //correo
+    }
+    
+    public void recibirArticulo(Entregable entregable){
+        String idCliente=entregable.destinatario.getIdCliente();
+        Cliente cliente=selecionarCliente(idCliente);
+        if(cliente.getIdCliente().equals("0")){
+            System.out.println("El cliente no existe");
+        }else{
+            cliente.getCasillero().agregarEntregable(entregable);
+            System.out.println("Articulo Dejado en el casillero corrrespondiente");
+            enviarCorreo(cliente);
+        }
+    }
+    
+    public void entregarArticulo(String idArticulo, String IDcliente){
+        Cliente cliente=selecionarCliente(IDcliente);
+        if(cliente.getIdCliente().equals("0")){
+            System.out.println("Cliente no encontrado");
+        }else{
+            cliente.getCasillero().entregarEntregable(IDcliente);
+        }
+    }
+    
+    public void consultarCasillero(String idCasillero){
+        boolean encontrado=false;
+        for(Casillero casillero:casilleros){
+            if(idCasillero.equals(casillero.getIdCasillero())){
+                System.out.println(casillero.toString());
+                encontrado=true;
+                break;
+            }
+        }
+        if(!encontrado){
+            System.out.println("Casillero no encontrado");
+        }
+    }
+    
+    public void consultarCasilleroCliente(String idCliente){
+        Cliente cliente=selecionarCliente(idCliente);
+        if(cliente.getIdCliente().equals("0")){
+            System.out.println("El cliente no existe");
+        }else{
+            System.out.println(cliente.getCasillero().toString());
+        }
+    }
+    
+    public ArrayList<String> consultEntregableFechaRecepcion(String fecha){
+        ArrayList<String> entregables=new ArrayList<>();
+        for(Casillero casillero:casilleros){
+            for(Entregable entregable:casillero.getEntregables()){
+                if(entregable.fechaRecepcion.equals(fecha)){
+                    entregables.add(entregable.toString());
+                }
+            }
+        }
+        if(entregables.isEmpty()){
+            entregables.add("No se encontro ningun entregable con la fecha:"+fecha);
+        }
+        return entregables;
+    }
+    
+    public ArrayList<String> consultEntregableFechaEntrega(String fecha){
+        ArrayList<String> entregables=new ArrayList<>();
+        for(Casillero casillero:casilleros){
+            for(Entregable entregable:casillero.getEntregables()){
+                if(entregable.fechaEntrega.equals(fecha)){
+                    entregables.add(entregable.toString());
+                }
+            }
+        }
+        if(entregables.isEmpty()){
+            entregables.add("No se encontro ningun entregable con la fecha:"+fecha);
+        }
+        return entregables;
+    }
+    
+    public ArrayList<String> consultPaquetesSinEntregar(){
+        ArrayList<String> entregables=new ArrayList<>();
+        for(Casillero casillero:casilleros){
+            for(Entregable entregable:casillero.getEntregables()){
+                if(!entregable.estadoEntrega){
+                   entregables.add(entregable.toString());
+                }
+            }
+        }
+        if(entregables.isEmpty()){
+            entregables.add("Todos los paquetes se han entregado");
+        }
+        return entregables;
+    }
+    
+    public ArrayList<String> consultClientesPaquetesPendientes(){
+        ArrayList<String> clients=new ArrayList<>();
+        int i;
+        boolean tienePendientes=false;
+        for(Casillero casillero:casilleros){
+            i=0;
+            for(Entregable entregable:casillero.getEntregables()){
+                if(!entregable.estadoEntrega){
+                    tienePendientes=true;
+                    i++;
+                }
+            }
+            if(tienePendientes){
+                clients.add(casillero.getCliente().toString()+ " Tiene: "+
+                        String.valueOf(i)+" paquetes pendientes");
+            }
+            tienePendientes=false;
+        }
+        return clients;
+    }
+    
+    public void correoTodosPendientes(ArrayList<Cliente> clientus){
+        clientus.forEach(this::enviarCorreo);
+    }
+    
+    public void informeContable(){
+        
+    }
     
 }

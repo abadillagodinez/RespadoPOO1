@@ -14,7 +14,8 @@ public class Paquete extends Entregable{
     private boolean fragil;
     private double peso;
 
-    public Paquete(String contenido, boolean fragil, double peso, int codReferencia, boolean estadoEntrega, String descripcion, Cliente remitente) {
+    public Paquete(String contenido, boolean fragil, double peso, String codReferencia,
+            boolean estadoEntrega, String descripcion, String remitente) {
         super(codReferencia, estadoEntrega, descripcion, remitente);
         setContenido(contenido);
         setFragil(fragil);
@@ -76,16 +77,22 @@ public class Paquete extends Entregable{
      */
     @Override
     public double calcularImpuesto(){
+        String s="";
         double result = 0;
         if(contenido.equals("Electronico") && isFragil()){
             result = (peso * 0.02) + 4;
+            s="Contenido electronico fragil. Impuesto = Peso: "+String.valueOf(peso)+" * 0.02 +4 = "+String.valueOf(result);
         }
         else if((contenido.equals("Electronico") && !isFragil()) || (!contenido.equals("Electronico") && isFragil())){
             result = (peso * 0.02) + 2;
+            s="Contenido electronico no fragil o contenido no electronico fragil. Impuesto = Peso: "
+                    +String.valueOf(peso)+" * 0.02 +2 = "+String.valueOf(result);
         }
         else if(!contenido.equals("Electronico") && !isFragil()){
+            s="Contenido ni electronico ni fragil. Impuesto = Peso: "+String.valueOf(peso)+" * 0.02 = "+String.valueOf(result);
             result = (peso * 0.02);
         }
+        this.impuesto=s;
         return result;
     }
     
@@ -105,6 +112,8 @@ public class Paquete extends Entregable{
         msg += "Peso: " + getPeso()+ " gramos\n";
         if(super.getEstadoEntrega()){
             msg += "Estado: "  + " Entregado\n";
+            msg += "Fecha de entrega: "+ this.fechaEntrega +"\n";
+            msg += "Hora de entrega: "+ this.horaEntrega +"\n";
         }
         else{
             msg += "Estado: " + " No Entregado\n";

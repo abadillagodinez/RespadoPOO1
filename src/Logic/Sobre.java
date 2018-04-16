@@ -23,7 +23,7 @@ public class Sobre extends Entregable {
      * @param estadoEntrega
      * @param descripcion 
      */
-    public Sobre(String tipo, String contenido, double peso, int codReferencia, boolean estadoEntrega, String descripcion, Cliente remitente) {
+    public Sobre(String tipo, String contenido, double peso, String codReferencia, boolean estadoEntrega, String descripcion, String remitente) {
         super(codReferencia, estadoEntrega, descripcion, remitente);
         setTipo(tipo);
         setContenido(contenido);
@@ -84,25 +84,35 @@ public class Sobre extends Entregable {
      */
     @Override
     public double calcularImpuesto() {
+        String s="";
         double result = 0;
         if(tipo.equals("Aereo") && contenido.equals("Documentacion")){
             result = 0;
+            s="Sobre Aereo y con Documentacion. Impuesto = 0";
         }
         else if(tipo.equals("Aereo") && contenido.equals("ArticuloPequeno")){
             result = 1;
+            s="Sobre Aereo y con Articulo pequeño. Impuesto = 1";
         }
         else if(tipo.equals("Manila") && contenido.equals("Documentacion")){
             result = 1;
+            s="Sobre Manila y con Documentacion. Impuesto = 1";
         }
         else if(tipo.equals("Manila") && contenido.equals("ArticuloPequeno")){
             result = 2;
+            s="Sobre Manila y con Articulo Pequeño. Impuesto = 2";
         }
+        this.impuesto=s;
         return result;
     }
     
+    
+    
     /**
      * toString de la clase
+     * @return 
      */
+    @Override
     public String toString(){
         String msg = "";
         msg += "Codigo: " + super.getCodReferencia() + "\n";
@@ -111,6 +121,8 @@ public class Sobre extends Entregable {
         msg += "Peso: " + + getPeso() + " gramos" + "\n";
         if(super.getEstadoEntrega()){
             msg += "Estado:"  + " Entregado\n";
+            msg += "Fecha de entrega: "+ this.fechaEntrega +"\n";
+            msg += "Hora de entrega: "+ this.horaEntrega +"\n";
         }
         else{
             msg += "Estado:" + " No Entregado\n";

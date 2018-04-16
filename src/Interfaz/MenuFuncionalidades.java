@@ -76,6 +76,11 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         btnModificarCliente.setText("Modificar Cliente");
 
         btnConsultarCliente.setText("Consultar Cliente");
+        btnConsultarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarClienteActionPerformed(evt);
+            }
+        });
 
         btnEliminarCliente.setText("Eliminar Cliente");
         btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -135,14 +140,6 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 .addGroup(pnlAdminisClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lstClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlAdminisClientLayout.createSequentialGroup()
-                        .addGroup(pnlAdminisClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnRegistrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlAdminisClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnModificarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEliminarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(pnlAdminisClientLayout.createSequentialGroup()
                         .addGroup(pnlAdminisClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(lblTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                             .addComponent(lblNombreCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -181,7 +178,15 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                     .addGroup(pnlAdminisClientLayout.createSequentialGroup()
                         .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txfDireccion)))
+                        .addComponent(txfDireccion))
+                    .addGroup(pnlAdminisClientLayout.createSequentialGroup()
+                        .addGroup(pnlAdminisClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnRegistrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAdminisClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnModificarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEliminarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         pnlAdminisClientLayout.setVerticalGroup(
@@ -216,7 +221,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 .addGroup(pnlAdminisClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDireccion)
                     .addComponent(txfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlAdminisClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrarCliente)
                     .addComponent(btnModificarCliente))
@@ -224,7 +229,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 .addGroup(pnlAdminisClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConsultarCliente)
                     .addComponent(btnEliminarCliente))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlRecepcionEntregables.setBorder(javax.swing.BorderFactory.createTitledBorder("Recepción de entregables"));
@@ -233,11 +238,11 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         pnlRecepcionEntregables.setLayout(pnlRecepcionEntregablesLayout);
         pnlRecepcionEntregablesLayout.setHorizontalGroup(
             pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 563, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         pnlRecepcionEntregablesLayout.setVerticalGroup(
             pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 222, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         pnlRetiroDeEntregables.setBorder(javax.swing.BorderFactory.createTitledBorder("Retiro de Entregables"));
@@ -263,7 +268,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         );
         pnlConsultasDeArticulosLayout.setVerticalGroup(
             pnlConsultasDeArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 481, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -272,9 +277,9 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlAdminisClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlAdminisClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlRetiroDeEntregables, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,9 +297,9 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                         .addComponent(pnlConsultasDeArticulos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(6, 6, 6))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(pnlAdminisClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pnlAdminisClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -326,7 +331,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Los casilleros ya estan llenos", "Error", 1);
             }
             else{
-                Cliente aInsertar = new Cliente(nombre, correo, telefono, direccion, sexo, fecha, Tipo.NORMAL);
+                Cliente aInsertar = new Cliente(nombre, correo, telefono, direccion, sexo, fecha);
                 counter.getClientes().add(aInsertar);
                 lstClientes.add(aInsertar.toLst());
                 txfDireccion.setText("");
@@ -382,6 +387,24 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnEliminarClienteActionPerformed
+
+    private void btnConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarClienteActionPerformed
+        // TODO add your handling code here:
+        if(lstClientes.getSelectedIndex() != -1){
+            ConsultarCliente ventana = new ConsultarCliente();
+            String nombre = "";
+            for(int i = 0; i <= lstClientes.getSelectedIndex(); i++){
+                if(i == lstClientes.getSelectedIndex()){
+                    nombre = counter.getClientes().get(i).getNombre();
+                }
+            }
+            ventana.getPanel().setBorder(javax.swing.BorderFactory.createTitledBorder("Consulta del cliente " + nombre));
+            ventana.show();
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un cliente de la lista", "Error", 1);
+        }
+    }//GEN-LAST:event_btnConsultarClienteActionPerformed
 
     /**
      * 

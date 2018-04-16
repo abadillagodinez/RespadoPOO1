@@ -5,35 +5,49 @@
  */
 package Logic;
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author retr0
  */
 public abstract class Entregable {
-    protected int codReferencia;
+    protected String codReferencia;
     protected boolean estadoEntrega;
     protected String descripcion;
-    protected Cliente remitente;
+    protected String remitente;
+    protected Cliente destinatario;
+    protected String fechaRecepcion;
+    protected String fechaEntrega;
+    protected String horaEntrega;
+    protected String impuesto;
     
     /**
      * constructor de la clase padre entregable
      * @param codReferencia
      * @param estadoEntrega
      * @param descripcion 
+     * @param remitente 
      */
     
-    public Entregable(int codReferencia, boolean estadoEntrega, String descripcion, Cliente remitente) {
+    public Entregable(String codReferencia, boolean estadoEntrega, String descripcion, String remitente) {
         setCodReferencia(codReferencia);
         setEstadoEntrega(estadoEntrega);
         setDescripcion(descripcion);
         setRemitente(remitente);
+        Calendar fecha=Calendar.getInstance();
+        Date date=fecha.getTime();
+        String d=date.toString();
+        String[] d2=d.split(" ");
+        this.fechaRecepcion=d2[2]+"/"+d2[1]+"/"+d2[d2.length-1];
     }
     
     /**
      * 
      * @return codigo de referencia del objeto
      */
-    public int getCodReferencia() {
+    public String getCodReferencia() {
         return codReferencia;
     }
 
@@ -41,7 +55,7 @@ public abstract class Entregable {
      * setter del codigo de referencia
      * @param codReferencia 
      */
-    public void setCodReferencia(int codReferencia) {
+    public void setCodReferencia(String codReferencia) {
         this.codReferencia = codReferencia;
     }
 
@@ -82,7 +96,7 @@ public abstract class Entregable {
      * 
      * @return el remitente del entregable
      */
-    public Cliente getRemitente() {
+    public String getRemitente() {
         return remitente;
     }
 
@@ -90,14 +104,74 @@ public abstract class Entregable {
      * setter del remite
      * @param remitente 
      */
-    public void setRemitente(Cliente remitente) {
+    public void setRemitente(String remitente) {
         this.remitente = remitente;
+    }
+
+    public Cliente getDestinatario() {
+        return destinatario;
+    }
+
+    public void setDestinatario(Cliente destinatario) {
+        this.destinatario = destinatario;
+    }
+
+    public String getFechaRecepcion() {
+        return fechaRecepcion;
+    }
+
+    public void setFechaRecepcion(String fechaRecepcion) {
+        this.fechaRecepcion = fechaRecepcion;
+    }
+
+    public String getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(String fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
+    }
+
+    public String getHoraEntrega() {
+        return horaEntrega;
+    }
+
+    public void setHoraEntrega(String horaEntrega) {
+        this.horaEntrega = horaEntrega;
+    }
+
+    public String getImpuesto() {
+        return impuesto;
+    }
+
+    public void setImpuesto(String impuesto) {
+        this.impuesto = impuesto;
+    }
+
+    public boolean isEstadoEntrega() {
+        return estadoEntrega;
     }
     
     
+    public void entregar(){
+        this.estadoEntrega=true;
+        Calendar fecha=Calendar.getInstance();
+        Date date=fecha.getTime();
+        String dato=date.toString();
+        String[] moreDate=dato.split(" ");
+        String dia=moreDate[2];
+        String mes=moreDate[1];
+        String anio=moreDate[moreDate.length-1];
+        String hora=moreDate[3];
+        this.fechaEntrega=dia+"/"+mes+"/"+anio;
+        this.horaEntrega=hora;
+    }
     
     /**
      *metodo abstracto de calculo de impuesto en los hijos
+     * @return 
      */
     public abstract double calcularImpuesto();
+    
+
 }

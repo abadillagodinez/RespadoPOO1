@@ -14,7 +14,8 @@ public class Revista extends Entregable {
     private boolean catalogo;
     private String tema;
 
-    public Revista(String nombre, boolean catalogo, String tema, int codReferencia, boolean estadoEntrega, String descripcion, Cliente remitente) {
+    public Revista(String nombre, boolean catalogo, String tema, String codReferencia,
+            boolean estadoEntrega, String descripcion, String remitente) {
         super(codReferencia, estadoEntrega, descripcion, remitente);
         setNombre(nombre);
         setCatalogo(catalogo);
@@ -76,9 +77,12 @@ public class Revista extends Entregable {
      @Override
     public double calcularImpuesto(){
         double result = 0;
+        String s="Es catalogo no paga impuestos";
         if(!isCatalogo()){
             result = 1;
+            s="Es revista, Impuesto = 1";
         }
+        this.impuesto=s;
         return result;
     }
     
@@ -98,6 +102,8 @@ public class Revista extends Entregable {
         msg += "Tema: " + getTema()+ "\n";
         if(super.getEstadoEntrega()){
             msg += "Estado:"  + " Entregado\n";
+            msg += "Fecha de entrega: "+ this.fechaEntrega +"\n";
+            msg += "Hora de entrega: "+ this.horaEntrega +"\n";
         }
         else{
             msg += "Estado:" + " No Entregado\n";

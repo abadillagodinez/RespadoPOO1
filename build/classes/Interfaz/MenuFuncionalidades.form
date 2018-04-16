@@ -28,9 +28,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="pnlRecepcionEntregables" min="-2" max="-2" attributes="0"/>
-                  <Component id="pnlAdminisClient" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="pnlAdminisClient" max="32767" attributes="0"/>
+                  <Component id="pnlRecepcionEntregables" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="199" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -53,9 +53,9 @@
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="pnlAdminisClient" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="pnlRecepcionEntregables" min="-2" max="-2" attributes="0"/>
+                      <Component id="pnlAdminisClient" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlRecepcionEntregables" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -80,17 +80,6 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lstClientes" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="btnRegistrarCliente" max="32767" attributes="0"/>
-                              <Component id="btnConsultarCliente" min="-2" pref="285" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnModificarCliente" max="32767" attributes="0"/>
-                              <Component id="btnEliminarCliente" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="lblTelefono" pref="76" max="32767" attributes="0"/>
@@ -143,6 +132,17 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="txfDireccion" max="32767" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnRegistrarCliente" max="32767" attributes="0"/>
+                              <Component id="btnConsultarCliente" min="-2" pref="285" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnModificarCliente" max="32767" attributes="0"/>
+                              <Component id="btnEliminarCliente" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -186,7 +186,7 @@
                       <Component id="lblDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txfDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnRegistrarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnModificarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -196,7 +196,7 @@
                       <Component id="btnConsultarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnEliminarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="81" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -219,6 +219,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar Cliente"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarClienteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnEliminarCliente">
           <Properties>
@@ -462,12 +465,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="563" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="222" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -511,7 +514,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="481" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
