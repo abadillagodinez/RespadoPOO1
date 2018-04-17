@@ -20,7 +20,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
      */
     public MenuFuncionalidades(Counter counter) {
         
-        setLocation(400,200);
+        setLocation(200,100);
         this.counter = counter;
         initComponents();
     }
@@ -58,6 +58,8 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         cbxDia = new javax.swing.JComboBox<>();
         pnlRecepcionEntregables = new javax.swing.JPanel();
+        lblIDDestinatario = new javax.swing.JLabel();
+        lblTipoDeEntregable = new javax.swing.JLabel();
         pnlRetiroDeEntregables = new javax.swing.JPanel();
         pnlConsultasDeArticulos = new javax.swing.JPanel();
 
@@ -239,15 +241,29 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
 
         pnlRecepcionEntregables.setBorder(javax.swing.BorderFactory.createTitledBorder("Recepción de entregables"));
 
+        lblIDDestinatario.setText("Id del destinatario:");
+
+        lblTipoDeEntregable.setText("Tipo de entregable:");
+
         javax.swing.GroupLayout pnlRecepcionEntregablesLayout = new javax.swing.GroupLayout(pnlRecepcionEntregables);
         pnlRecepcionEntregables.setLayout(pnlRecepcionEntregablesLayout);
         pnlRecepcionEntregablesLayout.setHorizontalGroup(
             pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(pnlRecepcionEntregablesLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTipoDeEntregable)
+                    .addComponent(lblIDDestinatario))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlRecepcionEntregablesLayout.setVerticalGroup(
             pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(pnlRecepcionEntregablesLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblIDDestinatario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTipoDeEntregable)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlRetiroDeEntregables.setBorder(javax.swing.BorderFactory.createTitledBorder("Retiro de Entregables"));
@@ -416,7 +432,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
 
     private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed
         // TODO add your handling code here:
-        ModificarCliente ventana = new ModificarCliente(counter.getClientes());
+        ModificarCliente ventana = new ModificarCliente(counter.getClientes(), lstClientes);
         ventana.show(true);
     }//GEN-LAST:event_btnModificarClienteActionPerformed
 
@@ -489,10 +505,12 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
     private javax.swing.JLabel lblAno;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblIDDestinatario;
     private javax.swing.JLabel lblMes;
     private javax.swing.JLabel lblNombreCliente;
     private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblTipoDeEntregable;
     private java.awt.List lstClientes;
     private javax.swing.JPanel pnlAdminisClient;
     private javax.swing.JPanel pnlConsultasDeArticulos;

@@ -115,13 +115,7 @@ public class Cliente {
      * @param correo 
      */
     public void setCorreo(String correo) {
-        if(validarCorreo(correo)){
-            this.correo= "CorreoInvalido@nada.com";
-            System.out.println("Correo invalido, Correo estandarAsignado");
-        }else{
-           this.correo = correo; 
-        }
-        
+        this.correo = correo; 
     }
 
     /**
@@ -240,10 +234,11 @@ public class Cliente {
         return msg;
     }
     
-    public void modificarCliente(){
-        //print en la interfaz todos los datos del cliente
-        //permite que el cliente escriba en los espacios
-        // una vez validados los datos ingresados, son asignados como nuevos al cliete
+    public void modificarCliente(String nombre, String correo, String telefono, String direccion){
+        setNombre(nombre);
+        setCorreo(correo);
+        setTelefono(telefono);
+        setDireccion(direccion);
     } 
 
     public String toLst() {
