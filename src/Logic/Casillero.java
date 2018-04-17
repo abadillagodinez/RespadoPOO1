@@ -21,7 +21,9 @@ public class Casillero {
     private static int plataMilestone=10;
     private static int oroMilestone=20;
 
-    public Casillero() {
+    public Casillero(String idCasillero) {
+        IdCasillero = idCasillero;
+        estado = false;
         entregables = new ArrayList<Entregable>();
     }
 
@@ -31,7 +33,7 @@ public class Casillero {
      * @return el estado del casillero
      */
     public boolean isLibre() {
-        return estado;
+        return !estado;
     }
 
     /**
@@ -139,7 +141,7 @@ public class Casillero {
      * @param entregable
      */
     public void agregarEntregable(Entregable entregable){
-        entregables.add(entregable);
+        System.out.println("Entro a aqui");
         if(entregables.size()==plataMilestone){
             cliente.setTipo(Tipo.PLATA);
             System.out.println("El cliente :"+cliente.getIdCliente()+"\n Nombre :"+cliente.getNombre()+

@@ -27,6 +27,10 @@ public class Counter {
     public Counter(int cantidadCasilleros) {
         setCantidadCasilleros(cantidadCasilleros);
         casilleros = new ArrayList<>(this.cantidadCasilleros);
+        for(int i = 0; i < this.cantidadCasilleros; i++){
+            Casillero nuevo = new Casillero(Integer.toString(i));
+            casilleros.add(nuevo);
+        }
         clientes = new ArrayList<>(cantidadCasilleros);
     }
 
@@ -82,15 +86,30 @@ public class Counter {
         int i = cantidadEntregables;
         return i;
     }
-    
-    public void registrarCliente(String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento){
+    public Casillero getCasilleroLibre(){
+        Casillero definitivo = null;
+        for(int i = 0; i < casilleros.size(); i++){
+            Casillero actual = casilleros.get(i);
+            if(actual.isLibre()){
+                definitivo = actual;
+                break;
+            }
+        }
+        return definitivo;
+    }
+            
+    public Cliente registrarCliente(String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento){
+        Cliente aRetornar = null;
         if(clientes.size() < cantidadCasilleros){
-            Cliente nuevo = new Cliente(nombre, correo, telefono, direccion, sexo, fechaNacimiento);
+            Casillero primeroLibre = getCasilleroLibre();
+            Cliente nuevo = new Cliente(nombre, correo, telefono, direccion, sexo, fechaNacimiento, primeroLibre);
             clientes.add(nuevo);
+            aRetornar = nuevo;
         }
         else{
             System.out.println("No quedan casilleros disponibles");
         }
+        return aRetornar;
     }
     
     public void eliminarCliente(String idCliente){
@@ -135,31 +154,31 @@ public class Counter {
     
     public void enviarCorreo(Cliente cliente, String mensaje){ 
         String remitente = "adriangazubg7@gmail.com"; 
-        String clave = "OLYOLYOXEFREE"; 
-        Properties props = System.getProperties(); 
-        props.put("mail.smtp.host", "smtp.gmail.com");  //El servidor SMTP de Google 
-        props.put("mail.smtp.user", remitente); 
-        props.put("mail.smtp.clave", "miClaveDeGMail");    //La clave de la cuenta 
-        props.put("mail.smtp.auth", "true");    //Usar autenticación mediante usuario y clave 
-        props.put("mail.smtp.starttls.enable", "true"); //Para conectar de manera segura al servidor SMTP 
-        props.put("mail.smtp.port", "587"); //El puerto SMTP seguro de Google 
- 
-        Session session = Session.getDefaultInstance(props); 
-        MimeMessage message = new MimeMessage(session); 
- 
-        try { 
-            message.setFrom(new InternetAddress(remitente)); 
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(cliente.getCorreo()));   //Se podrían añadir varios de la misma manera 
-            message.setSubject("Notificacion de AeroPancake, siempre montados en la arepa voladora"); 
-            message.setText(mensaje); 
-            Transport transport = session.getTransport("smtp"); 
-            transport.connect("smtp.gmail.com", remitente, clave); 
-            transport.sendMessage(message, message.getAllRecipients()); 
-            transport.close(); 
-        } 
-        catch (MessagingException me) { 
-            me.printStackTrace();   //Si se produce un error 
-        }
+        String clave = "OLYOLYOXENFREE"; 
+        Properties props = System.getProperties();
+        props.put("mail.smtp.host", "smtp.gmail.com");  //El servidor SMTP de Google
+        props.put("mail.smtp.user", remitente);
+        props.put("mail.smtp.clave", "miClaveDeGMail");    //La clave de la cuenta
+        props.put("mail.smtp.auth", "true");    //Usar autenticación mediante usuario y clave
+        props.put("mail.smtp.starttls.enable", "true"); //Para conectar de manera segura al servidor SMTP
+        props.put("mail.smtp.port", "587"); //El puerto SMTP seguro de Google
+
+        Session session = Session.getDefaultInstance(props);
+        MimeMessage message = new MimeMessage(session);
+
+    try {
+        message.setFrom(new InternetAddress(remitente));
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(cliente.getCorreo()));   //Se podrían añadir varios de la misma manera
+        message.setSubject("Notificacion de Aero Pancake, siempre en la arepa voladora");
+        message.setText(mensaje);
+        Transport transport = session.getTransport("smtp");
+        transport.connect("smtp.gmail.com", remitente, clave);
+        transport.sendMessage(message, message.getAllRecipients());
+        transport.close();
+    }
+    catch (MessagingException me) {
+        me.printStackTrace();   //Si se produce un error
+    }
     }
     
     public void recibirArticulo(Entregable entregable, String idCliente){
@@ -170,7 +189,8 @@ public class Counter {
         }else{
             cantidadEntregables++;
             cliente.getCasillero().agregarEntregable(entregable);
-            String mensaje = "Estimado cliente se le notifica que ha sido registrado un nuevo entregable\nen el casillero " + cliente.getCasillero().getIdCasillero(); 
+            String mensaje = "Estimado cliente se le notifica que ha sido registrado un nuevo entregable\nen el casillero " + cliente.getCasillero().getIdCasillero() 
+                    + " el cual se le recuerda esta disponible para su retiro"; 
             enviarCorreo(cliente, mensaje);
         }
     }

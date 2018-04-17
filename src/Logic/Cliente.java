@@ -37,7 +37,7 @@ public class Cliente {
      * @param fechaNacimiento
      * @param tipo 
      */
-    public Cliente(String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento) {
+    public Cliente(String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento, Casillero casillero) {
         cantidadClientes++;
         idCliente = String.valueOf(cantidadClientes);
         this.nombre = nombre;
@@ -47,6 +47,7 @@ public class Cliente {
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
         this.tipo = Tipo.NORMAL;
+        this.casillero = casillero;
     }
 
     /**

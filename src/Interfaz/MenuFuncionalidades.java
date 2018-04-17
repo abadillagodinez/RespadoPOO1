@@ -74,7 +74,31 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         btnAgregarSobre = new javax.swing.JButton();
         btnCancelarSobre = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        lblContenidoPaquete = new javax.swing.JLabel();
+        cbxContenidoPaquete = new javax.swing.JComboBox<>();
+        rbtFragilPaquete = new javax.swing.JRadioButton();
+        lblPesoPaquete = new javax.swing.JLabel();
+        txfPesoPaquete = new javax.swing.JTextField();
+        lblGramosPaquete = new javax.swing.JLabel();
+        lblDescripcionPaquete = new javax.swing.JLabel();
+        lblRemitentePaquete = new javax.swing.JLabel();
+        txfRemitentePaquete = new javax.swing.JTextField();
+        txfDescripcionPaquete = new javax.swing.JTextField();
+        btnRegistrarPaquete = new javax.swing.JButton();
+        btnCancelarPaquete = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        lblTemaRevista = new javax.swing.JLabel();
+        rbtCatalogRevista = new javax.swing.JRadioButton();
+        cbxContenidoRevista = new javax.swing.JComboBox<>();
+        lblNombreRevista = new javax.swing.JLabel();
+        txfNombreRevista = new javax.swing.JTextField();
+        lblGramosPaquete1 = new javax.swing.JLabel();
+        lblRemitenteRevista = new javax.swing.JLabel();
+        txfRemitenteRevista = new javax.swing.JTextField();
+        txfDescripcionRevista = new javax.swing.JTextField();
+        lblDescripcionRevista = new javax.swing.JLabel();
+        btnRegistrarRevista = new javax.swing.JButton();
+        btnCancelarRevista = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         lblIDClientes = new javax.swing.JLabel();
         btnCargarIDClientes = new javax.swing.JButton();
@@ -316,43 +340,42 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblTipoSobre)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(cbxTipoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblPesoSobre)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txfPesoSobre)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblGramosSobre))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(28, 28, 28)
-                                        .addComponent(lblContenidoSobre)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cbxContenidoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblTipoSobre)
+                                .addGap(18, 18, 18)
+                                .addComponent(cbxTipoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblRemitenteSobre)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txfRemitenteSobre))
+                                .addComponent(lblPesoSobre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txfPesoSobre)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblDescripcionSobre)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txfDescripcionSobre))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblGramosSobre))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(lblContenidoSobre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbxContenidoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(btnAgregarSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(btnCancelarSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblRemitenteSobre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txfRemitenteSobre))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblDescripcionSobre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txfDescripcionSobre)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAgregarSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(btnCancelarSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -373,41 +396,256 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txfRemitenteSobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRemitenteSobre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDescripcionSobre)
                     .addComponent(txfDescripcionSobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelarSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Registrar Paquete"));
+
+        lblContenidoPaquete.setText("Contenido:");
+
+        cbxContenidoPaquete.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Juguetes", "Libros", "Electronico", "Herramientas", "Joyeria" }));
+        cbxContenidoPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxContenidoPaqueteActionPerformed(evt);
+            }
+        });
+
+        rbtFragilPaquete.setText("Fragil");
+        rbtFragilPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtFragilPaqueteActionPerformed(evt);
+            }
+        });
+
+        lblPesoPaquete.setText("Peso:");
+
+        txfPesoPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfPesoPaqueteActionPerformed(evt);
+            }
+        });
+
+        lblGramosPaquete.setText("gramos");
+
+        lblDescripcionPaquete.setText("Descripcion:");
+
+        lblRemitentePaquete.setText("Remitente: ");
+
+        txfDescripcionPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfDescripcionPaqueteActionPerformed(evt);
+            }
+        });
+
+        btnRegistrarPaquete.setText("Registrar");
+        btnRegistrarPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarPaqueteActionPerformed(evt);
+            }
+        });
+
+        btnCancelarPaquete.setText("Cancelar");
+        btnCancelarPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarPaqueteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblContenidoPaquete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxContenidoPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRemitentePaquete)
+                            .addComponent(lblDescripcionPaquete))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txfRemitentePaquete, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                            .addComponent(txfDescripcionPaquete)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblPesoPaquete)
+                        .addGap(12, 12, 12)
+                        .addComponent(txfPesoPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblGramosPaquete)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(rbtFragilPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnRegistrarPaquete, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                            .addComponent(btnCancelarPaquete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 205, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblContenidoPaquete)
+                            .addComponent(cbxContenidoPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbtFragilPaquete))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPesoPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfPesoPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblGramosPaquete))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txfRemitentePaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblRemitentePaquete))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDescripcionPaquete)
+                            .addComponent(txfDescripcionPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(btnRegistrarPaquete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCancelarPaquete)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Registrar Revista"));
+
+        lblTemaRevista.setText("Tema:");
+
+        rbtCatalogRevista.setText("Fragil");
+        rbtCatalogRevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtCatalogRevistaActionPerformed(evt);
+            }
+        });
+
+        cbxContenidoRevista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Noticias", "Belleza/Moda", "Tecnologia", "Salud/ medicina", "Cocina", "Otros", " " }));
+        cbxContenidoRevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxContenidoRevistaActionPerformed(evt);
+            }
+        });
+
+        lblNombreRevista.setText("Nombre:");
+
+        txfNombreRevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfNombreRevistaActionPerformed(evt);
+            }
+        });
+
+        lblRemitenteRevista.setText("Remitente: ");
+
+        txfDescripcionRevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfDescripcionRevistaActionPerformed(evt);
+            }
+        });
+
+        lblDescripcionRevista.setText("Descripcion:");
+
+        btnRegistrarRevista.setText("Registrar");
+        btnRegistrarRevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarRevistaActionPerformed(evt);
+            }
+        });
+
+        btnCancelarRevista.setText("Cancelar");
+        btnCancelarRevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarRevistaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRemitenteRevista)
+                            .addComponent(lblDescripcionRevista))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txfRemitenteRevista)
+                            .addComponent(txfDescripcionRevista, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lblNombreRevista)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(173, 173, 173)
+                                .addComponent(lblGramosPaquete1))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(txfNombreRevista))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lblTemaRevista)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cbxContenidoRevista, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(rbtCatalogRevista, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnRegistrarRevista, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                            .addComponent(btnCancelarRevista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 87, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbtCatalogRevista)
+                            .addComponent(lblNombreRevista, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfNombreRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblTemaRevista)
+                                    .addComponent(cbxContenidoRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txfRemitenteRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblRemitenteRevista))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblDescripcionRevista)
+                                    .addComponent(txfDescripcionRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblGramosPaquete1)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(btnRegistrarRevista)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCancelarRevista)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione el id"));
@@ -454,14 +692,13 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
             .addGroup(pnlRecepcionEntregablesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlRecepcionEntregablesLayout.createSequentialGroup()
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlRecepcionEntregablesLayout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         pnlRecepcionEntregablesLayout.setVerticalGroup(
             pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -470,11 +707,11 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 .addGroup(pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pnlConsultasDeArticulos.setBorder(javax.swing.BorderFactory.createTitledBorder("Consulta de artículos"));
@@ -503,7 +740,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlConsultasDeArticulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -512,7 +749,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(59, 59, 59)
                         .addComponent(pnlConsultasDeArticulos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlAdminisClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -549,7 +786,9 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Ya no hay casilleros disponible", "Error", 1);
             }
             else{
-                Cliente aInsertar = new Cliente(nombre, correo, telefono, direccion, sexo, fecha);
+                Casillero siguienteLibre = counter.getCasilleroLibre();
+                Cliente aInsertar = new Cliente(nombre, correo, telefono, direccion, sexo, fecha, siguienteLibre);
+                siguienteLibre.setEstado(true);
                 counter.getClientes().add(aInsertar);
                 lstClientes.add(aInsertar.toLst());
                 txfDireccion.setText("");
@@ -601,6 +840,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 if(i == index){
                     lstClientes.delItem(i);
                     counter.getClientes().remove(i);
+                    counter.getCasilleros().get(i).setEstado(false);
                 }
             }
         }
@@ -665,11 +905,12 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
             String remitente = txfRemitenteSobre.getText();
             String idCliente = (String)cbxIDClientes.getSelectedItem();
             Sobre nuevo = new Sobre(tipo, contenido, peso, codReferencia, estado, descripcion, remitente);
+            System.out.println(nuevo.toString());
             counter.recibirArticulo(nuevo, idCliente);
             txfPesoSobre.setText("");
             txfDescripcionSobre.setText("");
             txfRemitenteSobre.setText("");
-            
+            JOptionPane.showMessageDialog(this, "Se ha registrado con exito al casillero", "Notificacion", 1);   
         }
     }//GEN-LAST:event_btnAgregarSobreActionPerformed
 
@@ -686,6 +927,108 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe insertar clientes", "Error", 1);
         }
     }//GEN-LAST:event_btnCargarIDClientesActionPerformed
+
+    private void cbxContenidoPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxContenidoPaqueteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxContenidoPaqueteActionPerformed
+
+    private void rbtFragilPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtFragilPaqueteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtFragilPaqueteActionPerformed
+
+    private void txfPesoPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfPesoPaqueteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfPesoPaqueteActionPerformed
+
+    private void txfDescripcionPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfDescripcionPaqueteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfDescripcionPaqueteActionPerformed
+
+    private void btnRegistrarPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPaqueteActionPerformed
+        // TODO add your handling code here:
+        if(txfPesoPaquete.getText().equals("") || txfDescripcionPaquete.getText().equals("") || txfRemitentePaquete.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Uno o varios espacios estan vacios", "Error", 1);
+        }
+        else if(!isDouble(txfPesoPaquete.getText())){
+            JOptionPane.showMessageDialog(this, "Formato del peso no es correcto", "Error", 1);
+        }
+        else if(cbxIDClientes.getItemCount() == 0){
+            JOptionPane.showMessageDialog(this, "Seleccione un id de cliente destino", "Error", 1);
+        }
+        else{
+            String contenido = (String)cbxContenidoPaquete.getSelectedItem();
+            double peso = Double.parseDouble(txfPesoPaquete.getText());
+            String codReferencia = Integer.toString(counter.getCantidadEntregables(), 16);
+            boolean estado = false;
+            boolean fragil = rbtFragilPaquete.isSelected();
+            String descripcion = txfDescripcionPaquete.getText();
+            String remitente = txfRemitentePaquete.getText();
+            String idCliente = (String)cbxIDClientes.getSelectedItem();
+            Paquete nuevo = new Paquete(contenido, fragil, peso, codReferencia, estado, descripcion, remitente);
+            System.out.println(nuevo.toString());
+            counter.recibirArticulo(nuevo, idCliente);
+            txfPesoPaquete.setText("");
+            txfDescripcionPaquete.setText("");
+            txfRemitentePaquete.setText("");
+            rbtFragilPaquete.setSelected(false);
+            JOptionPane.showMessageDialog(this, "Se ha registrado con exito al casillero", "Notificacion", 1);   
+        }
+    }//GEN-LAST:event_btnRegistrarPaqueteActionPerformed
+
+    private void btnCancelarPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarPaqueteActionPerformed
+        // TODO add your handling code here:
+        txfPesoPaquete.setText("");
+        txfDescripcionPaquete.setText("");
+        txfRemitentePaquete.setText("");
+        rbtFragilPaquete.setSelected(false);
+    }//GEN-LAST:event_btnCancelarPaqueteActionPerformed
+
+    private void rbtCatalogRevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtCatalogRevistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtCatalogRevistaActionPerformed
+
+    private void cbxContenidoRevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxContenidoRevistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxContenidoRevistaActionPerformed
+
+    private void txfNombreRevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfNombreRevistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfNombreRevistaActionPerformed
+
+    private void txfDescripcionRevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfDescripcionRevistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfDescripcionRevistaActionPerformed
+
+    private void btnRegistrarRevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarRevistaActionPerformed
+        if(txfNombreRevista.getText().equals("") || txfDescripcionRevista.getText().equals("") || txfRemitenteRevista.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Uno o varios espacios estan vacios", "Error", 1);
+        }
+        else if(cbxIDClientes.getItemCount() == 0){
+            JOptionPane.showMessageDialog(this, "Seleccione un id de cliente destino", "Error", 1);
+        }
+        else{
+            String nombre = txfNombreRevista.getText();
+            String tema = (String)cbxContenidoRevista.getSelectedItem();
+            String codReferencia = Integer.toString(counter.getCantidadEntregables(), 16);
+            boolean estado = false;
+            boolean catalogo = rbtCatalogRevista.isSelected();
+            String descripcion = txfDescripcionRevista.getText();
+            String remitente = txfRemitentePaquete.getText();
+            String idCliente = (String)cbxIDClientes.getSelectedItem();
+            Revista nuevo = new Revista(nombre, catalogo, tema, codReferencia, estado, descripcion, remitente);
+            System.out.println(nuevo.toString());
+            counter.recibirArticulo(nuevo, idCliente);
+            txfNombreRevista.setText("");
+            txfDescripcionRevista.setText("");
+            txfRemitenteRevista.setText("");
+            rbtCatalogRevista.setSelected(false);
+            JOptionPane.showMessageDialog(this, "Se ha registrado con exito al casillero", "Notificacion", 1);   
+        }
+    }//GEN-LAST:event_btnRegistrarRevistaActionPerformed
+
+    private void btnCancelarRevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarRevistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarRevistaActionPerformed
 
     /**
      * 
@@ -753,13 +1096,19 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarSobre;
+    private javax.swing.JButton btnCancelarPaquete;
+    private javax.swing.JButton btnCancelarRevista;
     private javax.swing.JButton btnCancelarSobre;
     private javax.swing.JButton btnCargarIDClientes;
     private javax.swing.JButton btnConsultarCliente;
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnModificarCliente;
     private javax.swing.JButton btnRegistrarCliente;
+    private javax.swing.JButton btnRegistrarPaquete;
+    private javax.swing.JButton btnRegistrarRevista;
     private javax.swing.JComboBox<String> cbxAno;
+    private javax.swing.JComboBox<String> cbxContenidoPaquete;
+    private javax.swing.JComboBox<String> cbxContenidoRevista;
     private javax.swing.JComboBox<String> cbxContenidoSobre;
     private javax.swing.JComboBox<String> cbxDia;
     private javax.swing.JComboBox<String> cbxIDClientes;
@@ -773,29 +1122,47 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblAno;
+    private javax.swing.JLabel lblContenidoPaquete;
     private javax.swing.JLabel lblContenidoSobre;
+    private javax.swing.JLabel lblDescripcionPaquete;
+    private javax.swing.JLabel lblDescripcionRevista;
     private javax.swing.JLabel lblDescripcionSobre;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblGramosPaquete;
+    private javax.swing.JLabel lblGramosPaquete1;
     private javax.swing.JLabel lblGramosSobre;
     private javax.swing.JLabel lblIDClientes;
     private javax.swing.JLabel lblMes;
     private javax.swing.JLabel lblNombreCliente;
+    private javax.swing.JLabel lblNombreRevista;
+    private javax.swing.JLabel lblPesoPaquete;
     private javax.swing.JLabel lblPesoSobre;
+    private javax.swing.JLabel lblRemitentePaquete;
+    private javax.swing.JLabel lblRemitenteRevista;
     private javax.swing.JLabel lblRemitenteSobre;
     private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblTemaRevista;
     private javax.swing.JLabel lblTipoSobre;
     private java.awt.List lstClientes;
     private javax.swing.JPanel pnlAdminisClient;
     private javax.swing.JPanel pnlConsultasDeArticulos;
     private javax.swing.JPanel pnlRecepcionEntregables;
     private javax.swing.JPanel pnlRetiroEntregables;
+    private javax.swing.JRadioButton rbtCatalogRevista;
+    private javax.swing.JRadioButton rbtFragilPaquete;
+    private javax.swing.JTextField txfDescripcionPaquete;
+    private javax.swing.JTextField txfDescripcionRevista;
     private javax.swing.JTextField txfDescripcionSobre;
     private javax.swing.JTextField txfDireccion;
     private javax.swing.JTextField txfEmail;
     private javax.swing.JTextField txfNombreCliente;
+    private javax.swing.JTextField txfNombreRevista;
+    private javax.swing.JTextField txfPesoPaquete;
     private javax.swing.JTextField txfPesoSobre;
+    private javax.swing.JTextField txfRemitentePaquete;
+    private javax.swing.JTextField txfRemitenteRevista;
     private javax.swing.JTextField txfRemitenteSobre;
     private javax.swing.JTextField txfTelefono;
     // End of variables declaration//GEN-END:variables
