@@ -57,14 +57,33 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         cbxMes = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         cbxDia = new javax.swing.JComboBox<>();
+        pnlRetiroEntregables = new javax.swing.JPanel();
         pnlRecepcionEntregables = new javax.swing.JPanel();
-        lblIDDestinatario = new javax.swing.JLabel();
-        lblTipoDeEntregable = new javax.swing.JLabel();
-        pnlRetiroDeEntregables = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        lblTipoSobre = new javax.swing.JLabel();
+        cbxTipoSobre = new javax.swing.JComboBox<>();
+        lblPesoSobre = new javax.swing.JLabel();
+        txfPesoSobre = new javax.swing.JTextField();
+        lblGramosSobre = new javax.swing.JLabel();
+        lblRemitenteSobre = new javax.swing.JLabel();
+        txfRemitenteSobre = new javax.swing.JTextField();
+        lblDescripcionSobre = new javax.swing.JLabel();
+        txfDescripcionSobre = new javax.swing.JTextField();
+        lblContenidoSobre = new javax.swing.JLabel();
+        cbxContenidoSobre = new javax.swing.JComboBox<>();
+        btnAgregarSobre = new javax.swing.JButton();
+        btnCancelarSobre = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        lblIDClientes = new javax.swing.JLabel();
+        btnCargarIDClientes = new javax.swing.JButton();
+        cbxIDClientes = new javax.swing.JComboBox<>();
         pnlConsultasDeArticulos = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1440, 768));
+        setMaximumSize(new java.awt.Dimension(1227, 855));
+        setPreferredSize(new java.awt.Dimension(1227, 855));
 
         pnlAdminisClient.setBorder(javax.swing.BorderFactory.createTitledBorder("Administrar Clientes"));
 
@@ -239,44 +258,223 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlRecepcionEntregables.setBorder(javax.swing.BorderFactory.createTitledBorder("Recepción de entregables"));
+        pnlRetiroEntregables.setBorder(javax.swing.BorderFactory.createTitledBorder("Retiro de entregables"));
 
-        lblIDDestinatario.setText("Id del destinatario:");
+        javax.swing.GroupLayout pnlRetiroEntregablesLayout = new javax.swing.GroupLayout(pnlRetiroEntregables);
+        pnlRetiroEntregables.setLayout(pnlRetiroEntregablesLayout);
+        pnlRetiroEntregablesLayout.setHorizontalGroup(
+            pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 573, Short.MAX_VALUE)
+        );
+        pnlRetiroEntregablesLayout.setVerticalGroup(
+            pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 246, Short.MAX_VALUE)
+        );
 
-        lblTipoDeEntregable.setText("Tipo de entregable:");
+        pnlRecepcionEntregables.setBorder(javax.swing.BorderFactory.createTitledBorder("Recepcion de Entregables"));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Registrar Sobre"));
+
+        lblTipoSobre.setText("Tipo:");
+
+        cbxTipoSobre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aereo", "Manila" }));
+
+        lblPesoSobre.setText("Peso:");
+
+        txfPesoSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfPesoSobreActionPerformed(evt);
+            }
+        });
+
+        lblGramosSobre.setText("gramos");
+
+        lblRemitenteSobre.setText("Remitente: ");
+
+        lblDescripcionSobre.setText("Descripcion:");
+
+        lblContenidoSobre.setText("Contenido:");
+
+        cbxContenidoSobre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Documentacion", "Articulo Pequeño" }));
+
+        btnAgregarSobre.setText("Registrar");
+        btnAgregarSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarSobreActionPerformed(evt);
+            }
+        });
+
+        btnCancelarSobre.setText("Cancelar");
+        btnCancelarSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarSobreActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(lblTipoSobre)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cbxTipoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(lblPesoSobre)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txfPesoSobre)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblGramosSobre))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(28, 28, 28)
+                                        .addComponent(lblContenidoSobre)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cbxContenidoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblRemitenteSobre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txfRemitenteSobre))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblDescripcionSobre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txfDescripcionSobre))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(btnAgregarSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnCancelarSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTipoSobre)
+                    .addComponent(cbxTipoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblContenidoSobre)
+                    .addComponent(cbxContenidoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txfPesoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblGramosSobre))
+                    .addComponent(lblPesoSobre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txfRemitenteSobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRemitenteSobre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDescripcionSobre)
+                    .addComponent(txfDescripcionSobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelarSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Registrar Paquete"));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 205, Short.MAX_VALUE)
+        );
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Registrar Revista"));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 87, Short.MAX_VALUE)
+        );
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione el id"));
+
+        lblIDClientes.setText("ID:");
+
+        btnCargarIDClientes.setText("Cargar ID's");
+        btnCargarIDClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarIDClientesActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblIDClientes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbxIDClientes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCargarIDClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIDClientes)
+                    .addComponent(cbxIDClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(65, 65, 65)
+                .addComponent(btnCargarIDClientes)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout pnlRecepcionEntregablesLayout = new javax.swing.GroupLayout(pnlRecepcionEntregables);
         pnlRecepcionEntregables.setLayout(pnlRecepcionEntregablesLayout);
         pnlRecepcionEntregablesLayout.setHorizontalGroup(
             pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRecepcionEntregablesLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTipoDeEntregable)
-                    .addComponent(lblIDDestinatario))
+                .addContainerGap()
+                .addGroup(pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlRecepcionEntregablesLayout.createSequentialGroup()
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlRecepcionEntregablesLayout.setVerticalGroup(
             pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRecepcionEntregablesLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lblIDDestinatario)
+                .addContainerGap()
+                .addGroup(pnlRecepcionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblTipoDeEntregable)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        pnlRetiroDeEntregables.setBorder(javax.swing.BorderFactory.createTitledBorder("Retiro de Entregables"));
-
-        javax.swing.GroupLayout pnlRetiroDeEntregablesLayout = new javax.swing.GroupLayout(pnlRetiroDeEntregables);
-        pnlRetiroDeEntregables.setLayout(pnlRetiroDeEntregablesLayout);
-        pnlRetiroDeEntregablesLayout.setHorizontalGroup(
-            pnlRetiroDeEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 516, Short.MAX_VALUE)
-        );
-        pnlRetiroDeEntregablesLayout.setVerticalGroup(
-            pnlRetiroDeEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 351, Short.MAX_VALUE)
         );
 
         pnlConsultasDeArticulos.setBorder(javax.swing.BorderFactory.createTitledBorder("Consulta de artículos"));
@@ -285,11 +483,11 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         pnlConsultasDeArticulos.setLayout(pnlConsultasDeArticulosLayout);
         pnlConsultasDeArticulosLayout.setHorizontalGroup(
             pnlConsultasDeArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 516, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
         pnlConsultasDeArticulosLayout.setVerticalGroup(
             pnlConsultasDeArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -300,28 +498,27 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlAdminisClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                    .addComponent(pnlRetiroEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlRetiroDeEntregables, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlConsultasDeArticulos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(126, 126, 126))
+                    .addComponent(pnlConsultasDeArticulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(pnlRetiroDeEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlConsultasDeArticulos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(6, 6, 6))
+                        .addComponent(pnlConsultasDeArticulos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlAdminisClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(pnlRetiroEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -436,6 +633,60 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         ventana.show(true);
     }//GEN-LAST:event_btnModificarClienteActionPerformed
 
+    private void txfPesoSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfPesoSobreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfPesoSobreActionPerformed
+
+    private void btnCancelarSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarSobreActionPerformed
+        // TODO add your handling code here:
+        txfPesoSobre.setText("");
+        txfDescripcionSobre.setText("");
+        txfRemitenteSobre.setText("");
+    }//GEN-LAST:event_btnCancelarSobreActionPerformed
+
+    private void btnAgregarSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarSobreActionPerformed
+        // TODO add your handling code here:
+        if(txfPesoSobre.getText().equals("") || txfDescripcionSobre.getText().equals("") || txfRemitenteSobre.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Uno o varios espacios estan vacios", "Error", 1);
+        }
+        else if(!isDouble(txfPesoSobre.getText())){
+            JOptionPane.showMessageDialog(this, "Formato del peso no es correcto", "Error", 1);
+        }
+        else if(cbxIDClientes.getItemCount() == 0){
+            JOptionPane.showMessageDialog(this, "Seleccione un id de cliente destino", "Error", 1);
+        }
+        else{
+            String tipo = (String)cbxTipoSobre.getSelectedItem();
+            String contenido = (String)cbxContenidoSobre.getSelectedItem();
+            double peso = Double.parseDouble(txfPesoSobre.getText());
+            String codReferencia = Integer.toString(counter.getCantidadEntregables(), 16);
+            boolean estado = false;
+            String descripcion = txfDescripcionSobre.getText();
+            String remitente = txfRemitenteSobre.getText();
+            String idCliente = (String)cbxIDClientes.getSelectedItem();
+            Sobre nuevo = new Sobre(tipo, contenido, peso, codReferencia, estado, descripcion, remitente);
+            counter.recibirArticulo(nuevo, idCliente);
+            txfPesoSobre.setText("");
+            txfDescripcionSobre.setText("");
+            txfRemitenteSobre.setText("");
+            
+        }
+    }//GEN-LAST:event_btnAgregarSobreActionPerformed
+
+    private void btnCargarIDClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarIDClientesActionPerformed
+        // TODO add your handling code here:
+        if(counter.getClientes().size() != 0){
+            String[] ids = new String[counter.getClientes().size()];
+            for(int i = 0; i < counter.getClientes().size(); i++){
+                ids[i] = counter.getClientes().get(i).getIdCliente();
+            }
+            cbxIDClientes.setModel(new javax.swing.DefaultComboBoxModel<>(ids));
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Debe insertar clientes", "Error", 1);
+        }
+    }//GEN-LAST:event_btnCargarIDClientesActionPerformed
+
     /**
      * 
      * @param anio
@@ -490,35 +741,62 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
             return false;
         }
     }
+    
+    private boolean isDouble(String numero){
+        try{
+            Double.parseDouble(numero);
+            return true;
+        }catch(NumberFormatException e){
+            return false;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarSobre;
+    private javax.swing.JButton btnCancelarSobre;
+    private javax.swing.JButton btnCargarIDClientes;
     private javax.swing.JButton btnConsultarCliente;
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnModificarCliente;
     private javax.swing.JButton btnRegistrarCliente;
     private javax.swing.JComboBox<String> cbxAno;
+    private javax.swing.JComboBox<String> cbxContenidoSobre;
     private javax.swing.JComboBox<String> cbxDia;
+    private javax.swing.JComboBox<String> cbxIDClientes;
     private javax.swing.JComboBox<String> cbxMes;
     private javax.swing.JComboBox<String> cbxSexo;
+    private javax.swing.JComboBox<String> cbxTipoSobre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblAno;
+    private javax.swing.JLabel lblContenidoSobre;
+    private javax.swing.JLabel lblDescripcionSobre;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblIDDestinatario;
+    private javax.swing.JLabel lblGramosSobre;
+    private javax.swing.JLabel lblIDClientes;
     private javax.swing.JLabel lblMes;
     private javax.swing.JLabel lblNombreCliente;
+    private javax.swing.JLabel lblPesoSobre;
+    private javax.swing.JLabel lblRemitenteSobre;
     private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblTelefono;
-    private javax.swing.JLabel lblTipoDeEntregable;
+    private javax.swing.JLabel lblTipoSobre;
     private java.awt.List lstClientes;
     private javax.swing.JPanel pnlAdminisClient;
     private javax.swing.JPanel pnlConsultasDeArticulos;
     private javax.swing.JPanel pnlRecepcionEntregables;
-    private javax.swing.JPanel pnlRetiroDeEntregables;
+    private javax.swing.JPanel pnlRetiroEntregables;
+    private javax.swing.JTextField txfDescripcionSobre;
     private javax.swing.JTextField txfDireccion;
     private javax.swing.JTextField txfEmail;
     private javax.swing.JTextField txfNombreCliente;
+    private javax.swing.JTextField txfPesoSobre;
+    private javax.swing.JTextField txfRemitenteSobre;
     private javax.swing.JTextField txfTelefono;
     // End of variables declaration//GEN-END:variables
 }

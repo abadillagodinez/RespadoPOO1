@@ -90,7 +90,7 @@ public class Sobre extends Entregable {
             result = 0;
             s="Sobre Aereo y con Documentacion. Impuesto = 0";
         }
-        else if(tipo.equals("Aereo") && contenido.equals("ArticuloPequeno")){
+        else if(tipo.equals("Aereo") && contenido.equals("Articulo Pequeño")){
             result = 1;
             s="Sobre Aereo y con Articulo pequeño. Impuesto = 1";
         }
@@ -98,7 +98,7 @@ public class Sobre extends Entregable {
             result = 1;
             s="Sobre Manila y con Documentacion. Impuesto = 1";
         }
-        else if(tipo.equals("Manila") && contenido.equals("ArticuloPequeno")){
+        else if(tipo.equals("Manila") && contenido.equals("Articulo Pequeño")){
             result = 2;
             s="Sobre Manila y con Articulo Pequeño. Impuesto = 2";
         }
