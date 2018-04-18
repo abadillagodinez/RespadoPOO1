@@ -9,13 +9,13 @@ import Logic.*;
  *
  * @author retr0
  */
-public class ConsultaPaquetesRecibidosFecha extends javax.swing.JFrame {
+public class ConsultarPaquetesEntregadosFecha extends javax.swing.JFrame {
     Counter counter;
 
     /**
-     * Creates new form ConsultaPaquetesRecibidosFecha
+     * Creates new form ConsultarPaquetesEntregadosFecha
      */
-    public ConsultaPaquetesRecibidosFecha(Counter counter) {
+    public ConsultarPaquetesEntregadosFecha(Counter counter) {
         this.counter = counter;
         initComponents();
     }
@@ -40,9 +40,9 @@ public class ConsultaPaquetesRecibidosFecha extends javax.swing.JFrame {
         txaConsulta = new javax.swing.JTextArea();
         btnConsultar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Paquetes recibidos en una fecha"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Paquetes entregados en una fecha"));
 
         lblAno.setText("AAAA:");
 
@@ -99,7 +99,7 @@ public class ConsultaPaquetesRecibidosFecha extends javax.swing.JFrame {
                 .addComponent(lblAno)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbxAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +188,7 @@ public class ConsultaPaquetesRecibidosFecha extends javax.swing.JFrame {
             Casillero actual = counter.getCasilleros().get(i);
             for(int j = 0; j < actual.getEntregables().size(); j++){
                 System.out.println(actual.getEntregables().get(j).getFechaRecepcion());
-                if(actual.getEntregables().get(j).getFechaRecepcion().equals(fechaABuscar)){
+                if(actual.getEntregables().get(j).getEstadoEntrega() && actual.getEntregables().get(j).getFechaRecepcion().equals(fechaABuscar)){
                     res += actual.getEntregables().get(j).toString() + "\n";
                 }
             }
@@ -214,10 +214,6 @@ public class ConsultaPaquetesRecibidosFecha extends javax.swing.JFrame {
             return false;
         }
     }
-    /**
-     * @param args the command line arguments
-     */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;

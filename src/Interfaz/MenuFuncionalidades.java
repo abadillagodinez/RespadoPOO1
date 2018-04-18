@@ -106,6 +106,8 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         pnlConsultasDeArticulos = new javax.swing.JPanel();
         btnConsultaCasillero = new javax.swing.JButton();
         btnConsultarRecibidosUnaFecha = new javax.swing.JButton();
+        btnConsultarEntregadosUnaFecha = new javax.swing.JButton();
+        btnConsultaArticulosPendientes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1227, 855));
@@ -732,6 +734,20 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
             }
         });
 
+        btnConsultarEntregadosUnaFecha.setText("Paquetes entregados en una fecha");
+        btnConsultarEntregadosUnaFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarEntregadosUnaFechaActionPerformed(evt);
+            }
+        });
+
+        btnConsultaArticulosPendientes.setText("Articulos Pendientes");
+        btnConsultaArticulosPendientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaArticulosPendientesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlConsultasDeArticulosLayout = new javax.swing.GroupLayout(pnlConsultasDeArticulos);
         pnlConsultasDeArticulos.setLayout(pnlConsultasDeArticulosLayout);
         pnlConsultasDeArticulosLayout.setHorizontalGroup(
@@ -740,7 +756,9 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlConsultasDeArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnConsultaCasillero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnConsultarRecibidosUnaFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnConsultarRecibidosUnaFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConsultarEntregadosUnaFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConsultaArticulosPendientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlConsultasDeArticulosLayout.setVerticalGroup(
@@ -750,6 +768,10 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 .addComponent(btnConsultaCasillero)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnConsultarRecibidosUnaFecha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnConsultarEntregadosUnaFecha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnConsultaArticulosPendientes)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -815,6 +837,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 Casillero siguienteLibre = counter.getCasilleroLibre();
                 Cliente aInsertar = new Cliente(nombre, correo, telefono, direccion, sexo, fecha, siguienteLibre);
                 siguienteLibre.setEstado(true);
+                siguienteLibre.setCliente(aInsertar);
                 counter.getClientes().add(aInsertar);
                 lstClientes.add(aInsertar.toLst());
                 txfDireccion.setText("");
@@ -1070,6 +1093,18 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         nueva.setVisible(true);
     }//GEN-LAST:event_btnConsultarRecibidosUnaFechaActionPerformed
 
+    private void btnConsultarEntregadosUnaFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarEntregadosUnaFechaActionPerformed
+        // TODO add your handling code here:
+        ConsultarPaquetesEntregadosFecha nueva = new ConsultarPaquetesEntregadosFecha(counter);
+        nueva.setVisible(true);
+    }//GEN-LAST:event_btnConsultarEntregadosUnaFechaActionPerformed
+
+    private void btnConsultaArticulosPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaArticulosPendientesActionPerformed
+        // TODO add your handling code here:
+        ConsultaDeFaltantesPorRetirar nuevo = new ConsultaDeFaltantesPorRetirar(counter);
+        nuevo.setVisible(true);
+    }//GEN-LAST:event_btnConsultaArticulosPendientesActionPerformed
+
     /**
      * 
      * @param anio
@@ -1140,8 +1175,10 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelarRevista;
     private javax.swing.JButton btnCancelarSobre;
     private javax.swing.JButton btnCargarIDClientes;
+    private javax.swing.JButton btnConsultaArticulosPendientes;
     private javax.swing.JButton btnConsultaCasillero;
     private javax.swing.JButton btnConsultarCliente;
+    private javax.swing.JButton btnConsultarEntregadosUnaFecha;
     private javax.swing.JButton btnConsultarRecibidosUnaFecha;
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnModificarCliente;

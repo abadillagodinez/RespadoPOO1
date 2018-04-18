@@ -5,6 +5,7 @@
  */
 package Logic;
 
+import java.awt.PopupMenu;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -217,6 +218,14 @@ public abstract class Entregable {
      * @return 
      */
     public abstract double calcularImpuesto();
+
+    public String toLst(Casillero casillero) {
+        String res = "";
+        String idCliente = casillero.getCliente().getIdCliente();
+        String idCasillero = casillero.getIdCasillero();
+        res += "Codigo: " + codReferencia + ", Casillero: " + idCasillero + ", Cliente: " + idCliente;
+        return res;
+    }
     
 
 }

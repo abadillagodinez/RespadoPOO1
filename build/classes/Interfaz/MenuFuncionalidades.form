@@ -1164,6 +1164,8 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="btnConsultaCasillero" max="32767" attributes="0"/>
                       <Component id="btnConsultarRecibidosUnaFecha" max="32767" attributes="0"/>
+                      <Component id="btnConsultarEntregadosUnaFecha" max="32767" attributes="0"/>
+                      <Component id="btnConsultaArticulosPendientes" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -1176,6 +1178,10 @@
                   <Component id="btnConsultaCasillero" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnConsultarRecibidosUnaFecha" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnConsultarEntregadosUnaFecha" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnConsultaArticulosPendientes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -1196,6 +1202,22 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarRecibidosUnaFechaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnConsultarEntregadosUnaFecha">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Paquetes entregados en una fecha"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarEntregadosUnaFechaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnConsultaArticulosPendientes">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Articulos Pendientes"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultaArticulosPendientesActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
