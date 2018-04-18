@@ -141,7 +141,6 @@ public class Casillero {
      * @param entregable
      */
     public void agregarEntregable(Entregable entregable){
-        System.out.println("Entro a aqui");
         if(entregables.size()==plataMilestone){
             cliente.setTipo(Tipo.PLATA);
             System.out.println("El cliente :"+cliente.getIdCliente()+"\n Nombre :"+cliente.getNombre()+
@@ -152,6 +151,7 @@ public class Casillero {
             System.out.println("El cliente :"+cliente.getIdCliente()+"\n Nombre :"+cliente.getNombre()+
                     " ha asencido de tipo, ahora es ORO, disfrute de su recien adquirido 10% de descuento");
         }
+        entregables.add(entregable);
     }
     
     public void entregarEntregable(String idEntregable){
@@ -164,6 +164,15 @@ public class Casillero {
                 System.out.println("El articulo no pudo ser entregado porque no se encontro su ID");
             }
         }
+    }
+    
+    public String toString(){
+        String res = "";
+        res += "Casillero: " + IdCasillero + "\n";
+        for(int i = 0; i < entregables.size(); i++){
+            res += entregables.get(i).toString() + "\n";
+        }
+        return res;
     }
     
     

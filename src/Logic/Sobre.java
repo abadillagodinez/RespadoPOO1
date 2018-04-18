@@ -115,20 +115,21 @@ public class Sobre extends Entregable {
     @Override
     public String toString(){
         String msg = "";
-        msg += "Codigo: " + super.getCodReferencia() + "\n";
-        msg += "Tipo: " + getTipo() + "\n";
-        msg += "Contenido: " + getContenido() + "\n";
-        msg += "Peso: " + + getPeso() + " gramos" + "\n";
+        msg += "\tCodigo: " + super.getCodReferencia() + "\n";
+        msg += "\tTipo: " + getTipo() + "\n";
+        msg += "\tContenido: " + getContenido() + "\n";
+        msg += "\tPeso: " + + getPeso() + " gramos" + "\n";
         if(super.getEstadoEntrega()){
             msg += "Estado:"  + " Entregado\n";
             msg += "Fecha de entrega: "+ this.fechaEntrega +"\n";
             msg += "Hora de entrega: "+ this.horaEntrega +"\n";
         }
         else{
-            msg += "Estado:" + " No Entregado\n";
+            msg += "\tEstado:" + " No Entregado\n";
         }
-        msg += "Descripcion: " + super.getDescripcion() + "\n";
-        msg += "Remitente: " + "\n" + "\t" + remitente.toString() + "\n";
+        msg += "\tDescripcion: " + super.getDescripcion() + "\n";
+        msg += "\tRemitente: " + "\t" + remitente.toString() + "\n";
+        msg += "\tFecha recepcion: " + super.fechaRecepcion + "\n";
         return msg;
     }
     

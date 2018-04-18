@@ -27,7 +27,7 @@ public class Counter {
     public Counter(int cantidadCasilleros) {
         setCantidadCasilleros(cantidadCasilleros);
         casilleros = new ArrayList<>(this.cantidadCasilleros);
-        for(int i = 0; i < this.cantidadCasilleros; i++){
+        for(int i = 1; i <= this.cantidadCasilleros; i++){
             Casillero nuevo = new Casillero(Integer.toString(i));
             casilleros.add(nuevo);
         }
@@ -187,7 +187,7 @@ public class Counter {
         if(cliente.getIdCliente().equals("0")){
             System.out.println("El cliente no existe");
         }else{
-            cantidadEntregables++;
+            ++cantidadEntregables;
             cliente.getCasillero().agregarEntregable(entregable);
             String mensaje = "Estimado cliente se le notifica que ha sido registrado un nuevo entregable\nen el casillero " + cliente.getCasillero().getIdCasillero() 
                     + " el cual se le recuerda esta disponible para su retiro"; 
@@ -204,27 +204,26 @@ public class Counter {
         }
     }
     
-    public void consultarCasillero(String idCasillero){
+    public String consultarCasillero(String idCasillero){
+        String res = "";
         boolean encontrado=false;
         for(Casillero casillero:casilleros){
             if(idCasillero.equals(casillero.getIdCasillero())){
-                System.out.println(casillero.toString());
+                res = casillero.toString();
                 encontrado=true;
                 break;
             }
         }
-        if(!encontrado){
-            System.out.println("Casillero no encontrado");
-        }
+        return res;
     }
     
-    public void consultarCasilleroCliente(String idCliente){
+    public String consultarCasilleroCliente(String idCliente){
         Cliente cliente=selecionarCliente(idCliente);
-        if(cliente.getIdCliente().equals("0")){
-            System.out.println("El cliente no existe");
-        }else{
-            System.out.println(cliente.getCasillero().toString());
-        }
+        String res = "";
+        Casillero casillero = cliente.getCasillero();
+        res += casillero.toString();
+        
+        return res;
     }
     
     public ArrayList<String> consultEntregableFechaRecepcion(String fecha){
