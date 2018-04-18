@@ -42,25 +42,39 @@ public class ConsultaDeFaltantesPorRetirar extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lstEntregables = new java.awt.List();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Articulos sin entregar"));
 
+        jButton1.setText("Notificar al cliente");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lstEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lstEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 179, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lstEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(lstEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -84,12 +98,80 @@ public class ConsultaDeFaltantesPorRetirar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String codCliente = getIDClienteDeLinea(lstEntregables.getSelectedItem());
+        String codCasillero = getCodCasillero(lstEntregables.getSelectedItem());
+        String codEntregable = getCodEntregable(lstEntregables.getSelectedItem());
+        for (int i = 0; i < counter.getClientes().size(); i++){
+            Cliente actual = counter.getClientes().get(i);
+            if(actual.getIdCliente().equals(codCliente)){
+                String mensaje = "Estimado cliente, se le recuerda que tiene un entregable de codigo: " + codEntregable
+                               + "pendiente de retiro en el casillero: " + codCasillero;
+                counter.enviarCorreo(actual, mensaje);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private String getIDClienteDeLinea(String linea){
+        String res = "";
+        int cont = 0;
+        for(int i = 0; i < linea.length(); i++){
+            char c = linea.charAt(i);
+            if(cont < 2 && c == ','){
+                cont++;
+            }
+            else if(cont == 2){
+                for(int j = i+10; j < linea.length(); j++){
+                    res += linea.charAt(j);
+                }
+            }
+        }
+        return res;
+    }
+    
+    private String getCodEntregable(String linea){
+        String res = "";
+        for(int i = 8; i < linea.length(); i++){
+            if(linea.charAt(i) == ','){
+                break;
+            }
+            else{
+                res += linea.charAt(i);
+            }
+        }
+        return res;
+    }
+    
+    private String getCodCasillero(String linea){
+        String res = "";
+        int cont = 0;
+        for(int i = 0; i < linea.length(); i++){
+            char c = linea.charAt(i);
+            if(cont < 1 && c == ','){
+                cont++;
+            }
+            else if(cont == 1){
+                for(int j = i+12; j < linea.length(); j++){
+                    if(linea.charAt(j) == ','){
+                        break;
+                    }
+                    else{
+                        res += linea.charAt(j);
+                    }
+                }
+                break;
+            }
+        }
+        return res;
+    }
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private java.awt.List lstEntregables;
     // End of variables declaration//GEN-END:variables
