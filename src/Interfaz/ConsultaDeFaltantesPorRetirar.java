@@ -101,18 +101,23 @@ public class ConsultaDeFaltantesPorRetirar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String codCliente = getIDClienteDeLinea(lstEntregables.getSelectedItem());
-        String codCasillero = getCodCasillero(lstEntregables.getSelectedItem());
-        String codEntregable = getCodEntregable(lstEntregables.getSelectedItem());
-        for (int i = 0; i < counter.getClientes().size(); i++){
-            Cliente actual = counter.getClientes().get(i);
-            if(actual.getIdCliente().equals(codCliente)){
-                String mensaje = "Estimado cliente, se le recuerda que tiene un entregable de codigo: " + codEntregable
-                               + " pendiente de retiro en el casillero: " + codCasillero;
-                counter.enviarCorreo(actual, mensaje);
+        if(lstEntregables.getSelectedIndex() != -1){
+            String codCliente = getIDClienteDeLinea(lstEntregables.getSelectedItem());
+            String codCasillero = getCodCasillero(lstEntregables.getSelectedItem());
+            String codEntregable = getCodEntregable(lstEntregables.getSelectedItem());
+            for (int i = 0; i < counter.getClientes().size(); i++){
+                Cliente actual = counter.getClientes().get(i);
+                if(actual.getIdCliente().equals(codCliente)){
+                    String mensaje = "Estimado cliente, se le recuerda que tiene un entregable de codigo: " + codEntregable
+                                   + " pendiente de retiro en el casillero: " + codCasillero;
+                    counter.enviarCorreo(actual, mensaje);
+                }
             }
+            JOptionPane.showMessageDialog(this, "Se ha logrado notificar exitoxamente", "Notificacion", 1);
         }
-        JOptionPane.showMessageDialog(this, "Se ha logrado notificar exitoxamente", "Notificacion", 1);
+        else{
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un entregable de la lista", "Notificacion", 1);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
