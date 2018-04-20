@@ -32,7 +32,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         this.counter = counter;
         initComponents();
         String tipoDeCambio = "Tipo de cambio \ndel dolar:\n    Compra: " + this.counter.obtenerCompraDelTipoDeCambio(fechaActual) +
-                "\n    Venta: " +this.counter.obtenerVentaDelTipoDeCambio(fechaActual);
+                "\n    Venta:    " +this.counter.obtenerVentaDelTipoDeCambio(fechaActual);
         txaTipoDeCambio.setText(tipoDeCambio);
     }
 
