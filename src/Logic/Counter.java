@@ -19,7 +19,6 @@ import cr.fi.bccr.sdde.ws.*;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.axis.AxisFault;
 
 /**
  *
@@ -30,7 +29,7 @@ public class Counter implements WSBCCR{
     ArrayList<Casillero> casilleros;
     int cantidadCasilleros;
     static int cantidadEntregables = 0;
-    ArrayList<ArrayList<String>> Reporte=new ArrayList<>();
+    //ArrayList<ArrayList<String>> Reporte=new ArrayList<>();
 
     public Counter(int cantidadCasilleros) {
         setCantidadCasilleros(cantidadCasilleros);
@@ -312,28 +311,31 @@ public class Counter implements WSBCCR{
         double impuesto2;
         String informe2;
         for(Casillero casillero:casilleros){
-            informe2="";
-            descontado="";
-            impuesto="";
-            descontado2=0;
-            impuesto2=0;
-            for(Entregable entregable:casillero.getEntregables()){
-                if(entregable.getFechaEntrega().equals(fecha)){
-                    impuesto2+=entregable.calcularImpuesto();
+            if(casillero.getCliente()!=null){
+                informe2="";
+                descontado="";
+                impuesto="";
+                descontado2=0;
+               impuesto2=0;
+                for(Entregable entregable:casillero.getEntregables()){
+                    if(entregable.getFechaEntrega().equals(fecha)){
+                        impuesto2+=entregable.calcularImpuesto();
+                    }
                 }
-            }
-            if(casillero.getCliente().getTipo()==Tipo.PLATA){
-                descontado2=0.1;
-            }else if(casillero.getCliente().getTipo()==Tipo.ORO){
-                descontado2=0.2;
-            }
-            descontado2*=impuesto2;
-            descontado=String.valueOf(descontado2);
-            impuesto=String.valueOf(impuesto2);
-            informe2="Impuesto Cobrado: "+String.valueOf(impuesto2-descontado2)+" \n Descuento Aplicado: "+
+                if(casillero.getCliente().getTipo()==Tipo.PLATA){
+                    descontado2=0.1;
+                }else if(casillero.getCliente().getTipo()==Tipo.ORO){
+                    descontado2=0.2;
+                }
+                descontado2*=impuesto2;
+                descontado=String.valueOf(descontado2);
+                impuesto=String.valueOf(impuesto2);
+                informe2="Impuesto Cobrado: "+String.valueOf(impuesto2-descontado2)+" \n Descuento Aplicado: "+
                     descontado+" \n Impuesto Total: "+impuesto;
-            informe.add(informe2);
+                informe.add(informe2);
+            }
         }
+        System.out.println("No se despichó tere");
         return informe;
     }
 
