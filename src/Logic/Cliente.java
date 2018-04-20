@@ -35,7 +35,7 @@ public class Cliente {
      * @param direccion
      * @param sexo
      * @param fechaNacimiento
-     * @param tipo 
+     * @param casillero 
      */
     public Cliente(String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento, Casillero casillero) {
         cantidadClientes++;
@@ -232,6 +232,7 @@ public class Cliente {
         msg += "\t" + "Sexo: " + sexo + "\n";
         msg += "\t" + "Fecha de nacimiento: " + fechaNacimiento + "\n";
         msg += "\t" + "Tipo: " + tipo.name() + "\n";
+        msg += "\t" + "Casillero#: " + casillero.getIdCasillero() + "\n";
         return msg;
     }
     

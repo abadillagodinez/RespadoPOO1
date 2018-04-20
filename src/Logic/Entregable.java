@@ -42,6 +42,7 @@ public abstract class Entregable {
         String d=date.toString();
         String[] d2=d.split(" ");
         this.fechaRecepcion=d2[2]+"/"+identificarMes(d2[1])+"/"+d2[d2.length-1];
+        this.fechaEntrega="";
     }
     
     /**

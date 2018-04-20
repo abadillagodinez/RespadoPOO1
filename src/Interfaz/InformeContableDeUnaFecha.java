@@ -5,6 +5,7 @@
  */
 package Interfaz;
 import Logic.*;
+import java.util.ArrayList;
 /**
  *
  * @author retr0
@@ -183,8 +184,11 @@ public class InformeContableDeUnaFecha extends javax.swing.JFrame {
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
         String fechaABuscar = (String)cbxDia.getSelectedItem() + "/" + (String)cbxMes.getSelectedItem() + "/" + (String)cbxAno.getSelectedItem();
-        String res = "";
-        
+        ArrayList<String> transacciones=counter.informeContable(fechaABuscar);
+        txaConsulta.setText("");
+        for(String s:transacciones){
+            txaConsulta.append(s);
+        }
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**
