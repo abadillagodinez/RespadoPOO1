@@ -81,15 +81,15 @@ public class Paquete extends Entregable{
         double result = 0;
         if(contenido.equals("Electronico") && isFragil()){
             result = (peso * 0.02) + 4;
-            s="Contenido electronico fragil. Impuesto = Peso: "+String.valueOf(peso)+" * 0.02 +4 = "+String.valueOf(result);
+            s="Contenido electronico fragil\n. Impuesto \n= Peso: "+String.valueOf(peso)+" * 0.02 +4 = "+String.valueOf(result);
         }
         else if((contenido.equals("Electronico") && !isFragil()) || (!contenido.equals("Electronico") && isFragil())){
             result = (peso * 0.02) + 2;
-            s="Contenido electronico no fragil o contenido no electronico fragil. Impuesto = Peso: "
+            s="Contenido electronico no fragil\n o contenido no electronico fragil.\n Impuesto \n= Peso: "
                     +String.valueOf(peso)+" * 0.02 +2 = "+String.valueOf(result);
         }
         else if(!contenido.equals("Electronico") && !isFragil()){
-            s="Contenido ni electronico ni fragil. Impuesto = Peso: "+String.valueOf(peso)+" * 0.02 = "+String.valueOf(result);
+            s="Contenido ni electronico ni fragil.\n Impuesto \n= Peso: "+String.valueOf(peso)+" * 0.02 = "+String.valueOf(result);
             result = (peso * 0.02);
         }
         this.impuesto=s;
@@ -100,7 +100,7 @@ public class Paquete extends Entregable{
      * toString de la clase
      */
     public String toString(){
-        String msg = "";
+        String msg = "\tPaquete\n";
         msg += "\tCodigo: " + super.getCodReferencia() + "\n";
         msg += "\tContenido: " + getContenido()+ "\n";
         if(isFragil()){

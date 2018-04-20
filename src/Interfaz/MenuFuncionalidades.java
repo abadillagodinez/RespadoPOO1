@@ -31,8 +31,8 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         setLocation(200,100);
         this.counter = counter;
         initComponents();
-        String tipoDeCambio = "Tipo de cambio \ndel dolar:\n    Compra: " + this.counter.obtenerCompraDelTipoDeCambio(fechaActual) +
-                "\n    Venta:    " +this.counter.obtenerVentaDelTipoDeCambio(fechaActual);
+        String tipoDeCambio = "Valor \nDolar" + "\nCompra: " + this.counter.obtenerCompraDelTipoDeCambio(fechaActual) +
+                "\nVenta:    " +this.counter.obtenerVentaDelTipoDeCambio(fechaActual);
         txaTipoDeCambio.setText(tipoDeCambio);
     }
 
@@ -82,6 +82,8 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         txtDescuentoTipoCliente = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txaTipoDeCambio = new javax.swing.JTextArea();
+        selecEfectivo = new javax.swing.JRadioButton();
+        txtImpuestoColones = new javax.swing.JTextField();
         pnlRecepcionEntregables = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         lblTipoSobre = new javax.swing.JLabel();
@@ -135,8 +137,6 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         btnInformeContableDeUnDia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1227, 855));
-        setPreferredSize(new java.awt.Dimension(1227, 855));
 
         pnlAdminisClient.setBorder(javax.swing.BorderFactory.createTitledBorder("Administrar Clientes"));
 
@@ -335,7 +335,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         lbImpuestoEntregablesPendientes.setText("Impuesto a pagar");
 
         txtTotalImpuestoAPagar.setEditable(false);
-        txtTotalImpuestoAPagar.setText("0");
+        txtTotalImpuestoAPagar.setText("$0");
 
         selecVisa.setText("Visa");
         selecVisa.addActionListener(new java.awt.event.ActionListener() {
@@ -367,6 +367,11 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         txaTipoDeCambio.setRows(5);
         jScrollPane1.setViewportView(txaTipoDeCambio);
 
+        selecEfectivo.setText("Efectivo");
+
+        txtImpuestoColones.setEditable(false);
+        txtImpuestoColones.setText("₡0");
+
         javax.swing.GroupLayout pnlRetiroEntregablesLayout = new javax.swing.GroupLayout(pnlRetiroEntregables);
         pnlRetiroEntregables.setLayout(pnlRetiroEntregablesLayout);
         pnlRetiroEntregablesLayout.setHorizontalGroup(
@@ -376,69 +381,65 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                     .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
                         .addComponent(lbImpuestoEntregablesPendientes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtTotalImpuestoAPagar))
+                        .addComponent(txtTotalImpuestoAPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtImpuestoColones))
                     .addComponent(lstEntregablesRetirables, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
-                        .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbTipoCliente)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDescuentoTipoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
-                            .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
-                                        .addComponent(selecAmeExp)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
-                                        .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(selecMasCar)
-                                            .addComponent(selecVisa))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                            .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(btnPagarEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                        .addComponent(lbTipoCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDescuentoTipoCliente))
+                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                        .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(selecVisa)
+                            .addComponent(selecMasCar)
+                            .addComponent(selecAmeExp)
+                            .addComponent(selecEfectivo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(btnPagarEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
                         .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAgregarCarrito)
                             .addComponent(btnCargarEntregablesPendientes))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pnlRetiroEntregablesLayout.setVerticalGroup(
             pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lstEntregablesRetirables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
-                        .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
+                                .addComponent(selecEfectivo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(selecVisa)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(selecMasCar))
+                                .addComponent(selecMasCar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(selecAmeExp))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(selecAmeExp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(32, 32, 32)
                         .addComponent(btnAgregarCarrito)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCargarEntregablesPendientes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                         .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbTipoCliente)
-                            .addComponent(txtDescuentoTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtDescuentoTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lstEntregablesRetirables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbImpuestoEntregablesPendientes)
                     .addComponent(txtTotalImpuestoAPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPagarEntregables))
+                    .addComponent(btnPagarEntregables)
+                    .addComponent(txtImpuestoColones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4))
         );
 
@@ -947,7 +948,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlConsultasDeArticulos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -962,7 +963,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                         .addComponent(pnlAdminisClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnlRetiroEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
@@ -1290,12 +1291,15 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
 
     private void btnAgregarCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCarritoActionPerformed
         if(lstEntregablesRetirables.getSelectedIndex() != -1){
-            double total=Double.valueOf(txtTotalImpuestoAPagar.getText());
+            double total=Double.valueOf(txtTotalImpuestoAPagar.getText().substring(1,txtTotalImpuestoAPagar.getText().length()));
             String entregableS=lstEntregablesRetirables.getSelectedItem();
             double impuesto=Double.valueOf(entregableS.substring(entregableS.indexOf("Impuesto: ")+10
                     ,entregableS.length()));
             total+=impuesto;
-            txtTotalImpuestoAPagar.setText(String.valueOf(total));
+            txtTotalImpuestoAPagar.setText("$"+String.valueOf(total));
+            Date date=new Date();
+            DateFormat formato=new SimpleDateFormat("dd/MM/YYYY");
+            txtImpuestoColones.setText("₡"+String.valueOf(total * counter.obtenerCompraDelTipoDeCambio(formato.format(date))).substring(0,8));
             listaHerramienta.add(entregableS.substring(entregableS.indexOf("go: ")+4,
                     entregableS.indexOf(";")));
         }
@@ -1305,12 +1309,13 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarCarritoActionPerformed
 
     private void btnPagarEntregablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarEntregablesActionPerformed
-        if("0".equals(txtTotalImpuestoAPagar.getText())){
+        if("$0".equals(txtTotalImpuestoAPagar.getText())){
             JOptionPane.showMessageDialog(this, "No ha selecionado ningun entregable", "Error", 1);
         }else{
-            if((selecVisa.isSelected()&&!selecMasCar.isSelected()&&!selecAmeExp.isSelected())
-                    ||(!selecVisa.isSelected()&&selecMasCar.isSelected()&&!selecAmeExp.isSelected())
-                    ||(!selecVisa.isSelected()&&!selecMasCar.isSelected()&&selecAmeExp.isSelected())){
+            if((selecVisa.isSelected()&&!selecMasCar.isSelected()&&!selecAmeExp.isSelected()&&!selecEfectivo.isSelected())
+                    ||(!selecVisa.isSelected()&&selecMasCar.isSelected()&&!selecAmeExp.isSelected()&&!selecEfectivo.isSelected())
+                    ||(!selecVisa.isSelected()&&!selecMasCar.isSelected()&&selecAmeExp.isSelected()&&!selecEfectivo.isSelected())
+                    ||(!selecVisa.isSelected()&&!selecMasCar.isSelected()&&!selecAmeExp.isSelected()&&selecEfectivo.isSelected())){
                 String idCasillero=listaHerramienta.get(0);
                 listaHerramienta.remove(0);
                 for(Casillero casillero:counter.getCasilleros()){
@@ -1328,7 +1333,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                         break;
                     }
                 }
-                double total=Double.valueOf(txtTotalImpuestoAPagar.getText());
+                double total=Double.valueOf(txtTotalImpuestoAPagar.getText().substring(1));
                 String descuentoS=txtDescuentoTipoCliente.getText();
                 if(!"0%".equals(descuentoS)){
                     double descuento=Double.valueOf(descuentoS.substring(0, 2))/100;
@@ -1369,7 +1374,8 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         }else{
             txtDescuentoTipoCliente.setText("0%");
         }
-        txtTotalImpuestoAPagar.setText("0");
+        txtTotalImpuestoAPagar.setText("$0");
+        txtImpuestoColones.setText("₡0");
         listaHerramienta.clear();
         listaHerramienta.add(client.getCasillero().getIdCasillero());
         for(Entregable entregable:client.getCasillero().getEntregables()){
@@ -1513,6 +1519,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtCatalogRevista;
     private javax.swing.JRadioButton rbtFragilPaquete;
     private javax.swing.JRadioButton selecAmeExp;
+    private javax.swing.JRadioButton selecEfectivo;
     private javax.swing.JRadioButton selecMasCar;
     private javax.swing.JRadioButton selecVisa;
     private javax.swing.JTextArea txaTipoDeCambio;
@@ -1530,6 +1537,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
     private javax.swing.JTextField txfRemitenteSobre;
     private javax.swing.JTextField txfTelefono;
     private javax.swing.JTextField txtDescuentoTipoCliente;
+    private javax.swing.JTextField txtImpuestoColones;
     private javax.swing.JTextField txtTotalImpuestoAPagar;
     // End of variables declaration//GEN-END:variables
 }

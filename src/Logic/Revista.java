@@ -80,7 +80,7 @@ public class Revista extends Entregable {
         String s="Es catalogo no paga impuestos";
         if(!isCatalogo()){
             result = 1;
-            s="Es revista, Impuesto = 1";
+            s="Es revista,\n Impuesto = 1";
         }
         this.impuesto=s;
         return result;
@@ -90,7 +90,7 @@ public class Revista extends Entregable {
      * toString de la clase
      */
     public String toString(){
-        String msg = "";
+        String msg = "\tRevista\n";
         msg += "\tCodigo: " + super.getCodReferencia() + "\n";
         msg += "\tNombre: " + getNombre()+ "\n";
         if(isCatalogo()){

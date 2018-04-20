@@ -88,19 +88,19 @@ public class Sobre extends Entregable {
         double result = 0;
         if(tipo.equals("Aereo") && contenido.equals("Documentacion")){
             result = 0;
-            s="Sobre Aereo y con Documentacion. Impuesto = 0";
+            s="Sobre Aereo \ny con Documentacion.\n Impuesto = 0";
         }
         else if(tipo.equals("Aereo") && contenido.equals("Articulo Pequeño")){
             result = 1;
-            s="Sobre Aereo y con Articulo pequeño. Impuesto = 1";
+            s="Sobre Aereo \ny con Articulo pequeño.\n Impuesto = 1";
         }
         else if(tipo.equals("Manila") && contenido.equals("Documentacion")){
             result = 1;
-            s="Sobre Manila y con Documentacion. Impuesto = 1";
+            s="Sobre Manila \ny con Documentacion.\n Impuesto = 1";
         }
         else if(tipo.equals("Manila") && contenido.equals("Articulo Pequeño")){
             result = 2;
-            s="Sobre Manila y con Articulo Pequeño. Impuesto = 2";
+            s="Sobre Manila \ny con Articulo Pequeño.\n Impuesto = 2";
         }
         this.impuesto=s;
         return result;
@@ -114,7 +114,7 @@ public class Sobre extends Entregable {
      */
     @Override
     public String toString(){
-        String msg = "";
+        String msg = "\tSobre\n";
         msg += "\tCodigo: " + super.getCodReferencia() + "\n";
         msg += "\tTipo: " + getTipo() + "\n";
         msg += "\tContenido: " + getContenido() + "\n";
