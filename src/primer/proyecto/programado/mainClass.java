@@ -27,7 +27,19 @@ public class mainClass {
         //Counter count = new Counter(24);
         //String cuerpo = "Puedo mandar un correo desde java";
         //count.enviarCorreo(nuevo, cuerpo);
-        new MenuInicio().setVisible(true);
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new MenuInicio().setVisible(true);
+                /*Counter c = new Counter(5);
+                String fecha = "19/4/2018";
+                System.out.println("Tipo de cambio de compra del dollar de " + fecha + " es de: " + c.obtenerCompraDelTipoDeCambio(fecha));
+                System.out.println("");
+                System.out.println("Tipo de cambio de venta del dollar de " + fecha + " es de: " + c.obtenerVentaDelTipoDeCambio(fecha));
+                //*/
+                // your logic here
+            }
+        });
+       
     }
     
 }

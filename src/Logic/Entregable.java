@@ -218,6 +218,8 @@ public abstract class Entregable {
      * @return 
      */
     public abstract double calcularImpuesto();
+    
+    public abstract String toList();
 
     public String toLst(Casillero casillero) {
         String res = "";
@@ -225,7 +227,6 @@ public abstract class Entregable {
         String idCasillero = casillero.getIdCasillero();
         res += "Codigo: " + codReferencia + ", Casillero: " + idCasillero + ", Cliente: " + idCliente;
         return res;
-    }
-    
+    } 
 
 }

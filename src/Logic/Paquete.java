@@ -101,25 +101,35 @@ public class Paquete extends Entregable{
      */
     public String toString(){
         String msg = "";
-        msg += "Codigo: " + super.getCodReferencia() + "\n";
-        msg += "Contenido: " + getContenido()+ "\n";
+        msg += "\tCodigo: " + super.getCodReferencia() + "\n";
+        msg += "\tContenido: " + getContenido()+ "\n";
         if(isFragil()){
-            msg += "Fragil\n";
+            msg += "\tFragil\n";
         }
         else{
-            msg += "No Fragil\n"; 
+            msg += "\tNo Fragil\n"; 
         }
-        msg += "Peso: " + getPeso()+ " gramos\n";
+        msg += "\tPeso: " + getPeso()+ " gramos\n";
         if(super.getEstadoEntrega()){
-            msg += "Estado: "  + " Entregado\n";
-            msg += "Fecha de entrega: "+ this.fechaEntrega +"\n";
-            msg += "Hora de entrega: "+ this.horaEntrega +"\n";
+            msg += "\tEstado: "  + " Entregado\n";
+            msg += "\tFecha de entrega: "+ super.fechaEntrega +"\n";
+            msg += "\tHora de entrega: "+ super.horaEntrega +"\n";
         }
         else{
-            msg += "Estado: " + " No Entregado\n";
+            msg += "\tEstado: " + " No Entregado\n";
         }
-        msg += "Descripcion: " + super.getDescripcion() + "\n";
-        msg += "Remitente: " + "\n" + "\t" + remitente.toString() + "\n";
+        msg += "\tFecha recepcion: " + super.fechaRecepcion + "\n";
+        msg += "\tDescripcion: " + super.getDescripcion() + "\n";
+        msg += "\tRemitente:" + remitente.toString() + "\n";
+        return msg;
+    }
+    
+    @Override
+    public String toList() {
+        String msg="";
+        msg+="Codigo: "+this.codReferencia;
+        msg+=";Paquete de: "+this.remitente;
+        msg+=" Impuesto: "+String.valueOf(calcularImpuesto());
         return msg;
     }
     

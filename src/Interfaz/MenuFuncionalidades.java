@@ -5,9 +5,13 @@
  */
 package Interfaz;
 import Logic.*;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /**
  *
  * @author retr0
@@ -15,14 +19,21 @@ import javax.swing.JOptionPane;
 public class MenuFuncionalidades extends javax.swing.JFrame {
 
     Counter counter;
+    ArrayList<String> listaHerramienta=new ArrayList<>();
     /**
      * Creates new form MenuFuncionalidades
      */
     public MenuFuncionalidades(Counter counter) {
         
+        Date date = new Date();
+        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaActual = formato.format(date);
         setLocation(200,100);
         this.counter = counter;
         initComponents();
+        String tipoDeCambio = "Tipo de cambio \ndel dolar:\n    Compra: " + this.counter.obtenerCompraDelTipoDeCambio(fechaActual) +
+                "\n    Venta: " +this.counter.obtenerVentaDelTipoDeCambio(fechaActual);
+        txaTipoDeCambio.setText(tipoDeCambio);
     }
 
     /**
@@ -58,6 +69,19 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         cbxDia = new javax.swing.JComboBox<>();
         pnlRetiroEntregables = new javax.swing.JPanel();
+        lstEntregablesRetirables = new java.awt.List();
+        btnCargarEntregablesPendientes = new javax.swing.JButton();
+        btnAgregarCarrito = new javax.swing.JButton();
+        lbImpuestoEntregablesPendientes = new javax.swing.JLabel();
+        txtTotalImpuestoAPagar = new javax.swing.JTextField();
+        selecVisa = new javax.swing.JRadioButton();
+        selecMasCar = new javax.swing.JRadioButton();
+        selecAmeExp = new javax.swing.JRadioButton();
+        btnPagarEntregables = new javax.swing.JButton();
+        lbTipoCliente = new javax.swing.JLabel();
+        txtDescuentoTipoCliente = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txaTipoDeCambio = new javax.swing.JTextArea();
         pnlRecepcionEntregables = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         lblTipoSobre = new javax.swing.JLabel();
@@ -108,6 +132,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         btnConsultarRecibidosUnaFecha = new javax.swing.JButton();
         btnConsultarEntregadosUnaFecha = new javax.swing.JButton();
         btnConsultaArticulosPendientes = new javax.swing.JButton();
+        btnInformeContableDeUnDia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1227, 855));
@@ -240,8 +265,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlAdminisClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnModificarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEliminarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                            .addComponent(btnEliminarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
         );
         pnlAdminisClientLayout.setVerticalGroup(
             pnlAdminisClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,15 +312,134 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
 
         pnlRetiroEntregables.setBorder(javax.swing.BorderFactory.createTitledBorder("Retiro de entregables"));
 
+        lstEntregablesRetirables.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lstEntregablesRetirablesActionPerformed(evt);
+            }
+        });
+
+        btnCargarEntregablesPendientes.setText("Entregables Pendientes");
+        btnCargarEntregablesPendientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarEntregablesPendientesActionPerformed(evt);
+            }
+        });
+
+        btnAgregarCarrito.setText("Agregar al carrito");
+        btnAgregarCarrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarCarritoActionPerformed(evt);
+            }
+        });
+
+        lbImpuestoEntregablesPendientes.setText("Impuesto a pagar");
+
+        txtTotalImpuestoAPagar.setEditable(false);
+        txtTotalImpuestoAPagar.setText("0");
+
+        selecVisa.setText("Visa");
+        selecVisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecVisaActionPerformed(evt);
+            }
+        });
+
+        selecMasCar.setText("Master Card");
+
+        selecAmeExp.setText("American Express");
+
+        btnPagarEntregables.setText("Pagar");
+        btnPagarEntregables.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagarEntregablesActionPerformed(evt);
+            }
+        });
+
+        lbTipoCliente.setText("Descuento por Tipo Cliente");
+
+        txtDescuentoTipoCliente.setEditable(false);
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setAutoscrolls(true);
+
+        txaTipoDeCambio.setEditable(false);
+        txaTipoDeCambio.setColumns(20);
+        txaTipoDeCambio.setRows(5);
+        jScrollPane1.setViewportView(txaTipoDeCambio);
+
         javax.swing.GroupLayout pnlRetiroEntregablesLayout = new javax.swing.GroupLayout(pnlRetiroEntregables);
         pnlRetiroEntregables.setLayout(pnlRetiroEntregablesLayout);
         pnlRetiroEntregablesLayout.setHorizontalGroup(
             pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
+            .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                        .addComponent(lbImpuestoEntregablesPendientes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtTotalImpuestoAPagar))
+                    .addComponent(lstEntregablesRetirables, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                        .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbTipoCliente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDescuentoTipoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
+                            .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                                        .addComponent(selecAmeExp)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                                        .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(selecMasCar)
+                                            .addComponent(selecVisa))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                            .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(btnPagarEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAgregarCarrito)
+                            .addComponent(btnCargarEntregablesPendientes))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlRetiroEntregablesLayout.setVerticalGroup(
             pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 246, Short.MAX_VALUE)
+            .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lstEntregablesRetirables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                        .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlRetiroEntregablesLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(selecVisa)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(selecMasCar))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(selecAmeExp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAgregarCarrito)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCargarEntregablesPendientes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbTipoCliente)
+                            .addComponent(txtDescuentoTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlRetiroEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbImpuestoEntregablesPendientes)
+                    .addComponent(txtTotalImpuestoAPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPagarEntregables))
+                .addGap(4, 4, 4))
         );
 
         pnlRecepcionEntregables.setBorder(javax.swing.BorderFactory.createTitledBorder("Recepcion de Entregables"));
@@ -748,31 +891,47 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
             }
         });
 
+        btnInformeContableDeUnDia.setText("Informe contable de una fecha");
+        btnInformeContableDeUnDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInformeContableDeUnDiaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlConsultasDeArticulosLayout = new javax.swing.GroupLayout(pnlConsultasDeArticulos);
         pnlConsultasDeArticulos.setLayout(pnlConsultasDeArticulosLayout);
         pnlConsultasDeArticulosLayout.setHorizontalGroup(
             pnlConsultasDeArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConsultasDeArticulosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlConsultasDeArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnConsultaCasillero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnConsultarRecibidosUnaFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnConsultarEntregadosUnaFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnConsultaArticulosPendientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlConsultasDeArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlConsultasDeArticulosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnlConsultasDeArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnConsultaCasillero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnConsultarEntregadosUnaFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlConsultasDeArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnConsultarRecibidosUnaFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                            .addComponent(btnConsultaArticulosPendientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(pnlConsultasDeArticulosLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(btnInformeContableDeUnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlConsultasDeArticulosLayout.setVerticalGroup(
             pnlConsultasDeArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConsultasDeArticulosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnConsultaCasillero)
+                .addGroup(pnlConsultasDeArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnConsultaCasillero, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(btnConsultarRecibidosUnaFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlConsultasDeArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConsultarEntregadosUnaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultaArticulosPendientes, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnConsultarRecibidosUnaFecha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnConsultarEntregadosUnaFecha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnConsultaArticulosPendientes)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnInformeContableDeUnDia, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -781,29 +940,29 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlAdminisClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlRetiroEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlAdminisClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlRetiroEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlConsultasDeArticulos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlRecepcionEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnlConsultasDeArticulos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(pnlConsultasDeArticulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlAdminisClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnlRetiroEntregables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();
@@ -1074,6 +1233,10 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
 
     private void btnCancelarRevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarRevistaActionPerformed
         // TODO add your handling code here:
+        txfNombreRevista.setText("");
+            txfDescripcionRevista.setText("");
+            txfRemitenteRevista.setText("");
+            rbtCatalogRevista.setSelected(false);
     }//GEN-LAST:event_btnCancelarRevistaActionPerformed
 
     private void btnConsultaCasilleroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaCasilleroActionPerformed
@@ -1105,6 +1268,116 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
         nuevo.setVisible(true);
     }//GEN-LAST:event_btnConsultaArticulosPendientesActionPerformed
 
+    private void btnCargarEntregablesPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarEntregablesPendientesActionPerformed
+        if(lstClientes.getSelectedIndex() != -1){
+            String id = "";
+            for(int i = 0; i <= lstClientes.getSelectedIndex(); i++){
+                if(i == lstClientes.getSelectedIndex()){
+                    id = counter.getClientes().get(i).getIdCliente();
+                    break;
+                }
+            }
+            cargarPendientesCliente(id);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un cliente de la lista", "Error", 1);
+        }
+    }//GEN-LAST:event_btnCargarEntregablesPendientesActionPerformed
+
+    private void lstEntregablesRetirablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lstEntregablesRetirablesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lstEntregablesRetirablesActionPerformed
+
+    private void btnAgregarCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCarritoActionPerformed
+        if(lstEntregablesRetirables.getSelectedIndex() != -1){
+            double total=Double.valueOf(txtTotalImpuestoAPagar.getText());
+            String entregableS=lstEntregablesRetirables.getSelectedItem();
+            double impuesto=Double.valueOf(entregableS.substring(entregableS.indexOf("Impuesto: ")+10
+                    ,entregableS.length()));
+            total+=impuesto;
+            txtTotalImpuestoAPagar.setText(String.valueOf(total));
+            listaHerramienta.add(entregableS.substring(entregableS.indexOf("go: ")+4,
+                    entregableS.indexOf(";")));
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un entregable de la lista", "Error", 1);
+        }
+    }//GEN-LAST:event_btnAgregarCarritoActionPerformed
+
+    private void btnPagarEntregablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarEntregablesActionPerformed
+        if("0".equals(txtTotalImpuestoAPagar.getText())){
+            JOptionPane.showMessageDialog(this, "No ha selecionado ningun entregable", "Error", 1);
+        }else{
+            if((selecVisa.isSelected()&&!selecMasCar.isSelected()&&!selecAmeExp.isSelected())
+                    ||(!selecVisa.isSelected()&&selecMasCar.isSelected()&&!selecAmeExp.isSelected())
+                    ||(!selecVisa.isSelected()&&!selecMasCar.isSelected()&&selecAmeExp.isSelected())){
+                String idCasillero=listaHerramienta.get(0);
+                listaHerramienta.remove(0);
+                for(Casillero casillero:counter.getCasilleros()){
+                    if(casillero.getIdCasillero().equals(idCasillero)){
+                        for(String s:listaHerramienta){
+                            for(Entregable entregable:casillero.getEntregables()){
+                                if(entregable.getCodReferencia().equals(s)){
+                                    entregable.entregar();
+                                }
+                            }
+                        }
+                        listaHerramienta.clear();
+                        txtDescuentoTipoCliente.setText("0");
+                        cargarPendientesCliente(casillero.getCliente().getIdCliente());
+                        break;
+                    }
+                }
+                double total=Double.valueOf(txtTotalImpuestoAPagar.getText());
+                String descuentoS=txtDescuentoTipoCliente.getText();
+                if(!"0%".equals(descuentoS)){
+                    double descuento=Double.valueOf(descuentoS.substring(0, 2))/100;
+                    descuentoS=String.valueOf(total*descuento);
+                    JOptionPane.showMessageDialog(this, descuentoS+" pagado con el descuento aplicado", "Pagado", 1);
+                }else{
+                    JOptionPane.showMessageDialog(this, "impuesto pagado correctamente, no descuento aplicado", "Pagado", 1);
+                }
+            }else{
+                JOptionPane.showMessageDialog(this, "Elija solo una opción de pago", "Error", 1);
+            }
+        }
+    }//GEN-LAST:event_btnPagarEntregablesActionPerformed
+
+    private void selecVisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecVisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selecVisaActionPerformed
+
+    private void btnInformeContableDeUnDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformeContableDeUnDiaActionPerformed
+        // TODO add your handling code here:
+        InformeContableDeUnaFecha nueva = new InformeContableDeUnaFecha(counter);
+        nueva.setVisible(true);
+    }//GEN-LAST:event_btnInformeContableDeUnDiaActionPerformed
+
+    private void cargarPendientesCliente(String id){
+        lstEntregablesRetirables.clear();
+        Cliente client = null;
+        for(Cliente cliente:counter.getClientes()){
+            if(cliente.getIdCliente().equals(id)){
+                client=cliente;
+                break;
+            }
+        }
+        if(client.getTipo()==Tipo.PLATA){
+            txtDescuentoTipoCliente.setText("5%");
+        }else if(client.getTipo()==Tipo.ORO){
+            txtDescuentoTipoCliente.setText("10%");
+        }else{
+            txtDescuentoTipoCliente.setText("0%");
+        }
+        txtTotalImpuestoAPagar.setText("0");
+        listaHerramienta.clear();
+        listaHerramienta.add(client.getCasillero().getIdCasillero());
+        for(Entregable entregable:client.getCasillero().getEntregables()){
+            if(!entregable.isEstadoEntrega()){
+                lstEntregablesRetirables.add(entregable.toList());
+            }
+        }
+    }
     /**
      * 
      * @param anio
@@ -1170,10 +1443,12 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarCarrito;
     private javax.swing.JButton btnAgregarSobre;
     private javax.swing.JButton btnCancelarPaquete;
     private javax.swing.JButton btnCancelarRevista;
     private javax.swing.JButton btnCancelarSobre;
+    private javax.swing.JButton btnCargarEntregablesPendientes;
     private javax.swing.JButton btnCargarIDClientes;
     private javax.swing.JButton btnConsultaArticulosPendientes;
     private javax.swing.JButton btnConsultaCasillero;
@@ -1181,7 +1456,9 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultarEntregadosUnaFecha;
     private javax.swing.JButton btnConsultarRecibidosUnaFecha;
     private javax.swing.JButton btnEliminarCliente;
+    private javax.swing.JButton btnInformeContableDeUnDia;
     private javax.swing.JButton btnModificarCliente;
+    private javax.swing.JButton btnPagarEntregables;
     private javax.swing.JButton btnRegistrarCliente;
     private javax.swing.JButton btnRegistrarPaquete;
     private javax.swing.JButton btnRegistrarRevista;
@@ -1200,6 +1477,9 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbImpuestoEntregablesPendientes;
+    private javax.swing.JLabel lbTipoCliente;
     private javax.swing.JLabel lblAno;
     private javax.swing.JLabel lblContenidoPaquete;
     private javax.swing.JLabel lblContenidoSobre;
@@ -1225,12 +1505,17 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
     private javax.swing.JLabel lblTemaRevista;
     private javax.swing.JLabel lblTipoSobre;
     private java.awt.List lstClientes;
+    private java.awt.List lstEntregablesRetirables;
     private javax.swing.JPanel pnlAdminisClient;
     private javax.swing.JPanel pnlConsultasDeArticulos;
     private javax.swing.JPanel pnlRecepcionEntregables;
     private javax.swing.JPanel pnlRetiroEntregables;
     private javax.swing.JRadioButton rbtCatalogRevista;
     private javax.swing.JRadioButton rbtFragilPaquete;
+    private javax.swing.JRadioButton selecAmeExp;
+    private javax.swing.JRadioButton selecMasCar;
+    private javax.swing.JRadioButton selecVisa;
+    private javax.swing.JTextArea txaTipoDeCambio;
     private javax.swing.JTextField txfDescripcionPaquete;
     private javax.swing.JTextField txfDescripcionRevista;
     private javax.swing.JTextField txfDescripcionSobre;
@@ -1244,5 +1529,7 @@ public class MenuFuncionalidades extends javax.swing.JFrame {
     private javax.swing.JTextField txfRemitenteRevista;
     private javax.swing.JTextField txfRemitenteSobre;
     private javax.swing.JTextField txfTelefono;
+    private javax.swing.JTextField txtDescuentoTipoCliente;
+    private javax.swing.JTextField txtTotalImpuestoAPagar;
     // End of variables declaration//GEN-END:variables
 }

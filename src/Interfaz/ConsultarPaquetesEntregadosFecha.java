@@ -40,7 +40,7 @@ public class ConsultarPaquetesEntregadosFecha extends javax.swing.JFrame {
         txaConsulta = new javax.swing.JTextArea();
         btnConsultar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Paquetes entregados en una fecha"));
 

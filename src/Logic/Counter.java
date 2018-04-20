@@ -5,6 +5,7 @@
  */
 package Logic;
 
+
 import java.util.*;
 import javax.mail.Message; 
 import javax.mail.MessagingException; 
@@ -13,11 +14,18 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress; 
 import javax.mail.internet.MimeMessage; 
 
+
+import cr.fi.bccr.sdde.ws.*;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.axis.AxisFault;
+
 /**
  *
  * @author retr0
  */
-public class Counter {
+public class Counter implements WSBCCR{
     ArrayList<Cliente> clientes;
     ArrayList<Casillero> casilleros;
     int cantidadCasilleros;
@@ -328,5 +336,53 @@ public class Counter {
         }
         return informe;
     }
+
+    @Override
+    public double obtenerCompraDelTipoDeCambio(String fecha) {
+        double res = 0;
+        WsIndicadoresEconomicosSoapProxy obtener =
+                new WsIndicadoresEconomicosSoapProxy("http://indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/WebServices/wsIndicadoresEconomicos.asmx");
+        try {
+            String numero = parsearXML(obtener.obtenerIndicadoresEconomicosXML("317", fecha, fecha, "IC2101", "N"));
+            res = Double.parseDouble(numero);
+        } catch (RemoteException ex) {
+            Logger.getLogger(Counter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res;
+    }
+
+    @Override
+    public double obtenerVentaDelTipoDeCambio(String fecha) {
+        double res = 0;
+        WsIndicadoresEconomicosSoapProxy obtener =
+                new WsIndicadoresEconomicosSoapProxy("http://indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/WebServices/wsIndicadoresEconomicos.asmx");
+        try {
+            String numero = parsearXML(obtener.obtenerIndicadoresEconomicosXML("318", fecha, fecha, "IC2101", "N"));
+            res = Double.parseDouble(numero);
+        } catch (RemoteException ex) {
+            Logger.getLogger(Counter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res;
+    }   
     
+    private String parsearXML(String xml){
+        String res = "";
+        int linea = 0;
+        for (int i = 0; i < xml.length(); i++){
+            if(linea == 4){
+                for(int j = i; xml.charAt(j) != '\n' ;j++){
+                    if(xml.charAt(j) == '>'){
+                        for(int k = j+1; xml.charAt(k) != '<' ;k++){
+                            res += xml.charAt(k);
+                        }
+                    }
+                }
+            break;
+            }
+            else if(xml.charAt(i) == '\n'){
+                linea++;
+            }
+        }
+        return res;
+    }
 }

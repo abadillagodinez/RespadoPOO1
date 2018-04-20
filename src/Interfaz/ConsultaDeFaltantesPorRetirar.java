@@ -6,6 +6,7 @@
 package Interfaz;
 
 import Logic.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,7 +45,7 @@ public class ConsultaDeFaltantesPorRetirar extends javax.swing.JFrame {
         lstEntregables = new java.awt.List();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Articulos sin entregar"));
 
@@ -107,10 +108,11 @@ public class ConsultaDeFaltantesPorRetirar extends javax.swing.JFrame {
             Cliente actual = counter.getClientes().get(i);
             if(actual.getIdCliente().equals(codCliente)){
                 String mensaje = "Estimado cliente, se le recuerda que tiene un entregable de codigo: " + codEntregable
-                               + "pendiente de retiro en el casillero: " + codCasillero;
+                               + " pendiente de retiro en el casillero: " + codCasillero;
                 counter.enviarCorreo(actual, mensaje);
             }
         }
+        JOptionPane.showMessageDialog(this, "Se ha logrado notificar exitoxamente", "Notificacion", 1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private String getIDClienteDeLinea(String linea){

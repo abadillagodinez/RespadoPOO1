@@ -120,16 +120,25 @@ public class Sobre extends Entregable {
         msg += "\tContenido: " + getContenido() + "\n";
         msg += "\tPeso: " + + getPeso() + " gramos" + "\n";
         if(super.getEstadoEntrega()){
-            msg += "Estado:"  + " Entregado\n";
-            msg += "Fecha de entrega: "+ this.fechaEntrega +"\n";
-            msg += "Hora de entrega: "+ this.horaEntrega +"\n";
+            msg += "\tEstado:"  + " Entregado\n";
+            msg += "\tFecha de entrega: "+ super.fechaEntrega +"\n";
+            msg += "\tHora de entrega: "+ super.horaEntrega +"\n";
         }
         else{
             msg += "\tEstado:" + " No Entregado\n";
         }
-        msg += "\tDescripcion: " + super.getDescripcion() + "\n";
-        msg += "\tRemitente: " + "\t" + remitente.toString() + "\n";
         msg += "\tFecha recepcion: " + super.fechaRecepcion + "\n";
+        msg += "\tDescripcion: " + super.getDescripcion() + "\n";
+        msg += "\tRemitente: " + remitente.toString() + "\n";
+        return msg;
+    }
+    
+    @Override
+    public String toList() {
+        String msg="";
+        msg+="Codigo: "+this.codReferencia;
+        msg+=";Sobre de: "+this.remitente;
+        msg+=" Impuesto: "+String.valueOf(calcularImpuesto());
         return msg;
     }
     

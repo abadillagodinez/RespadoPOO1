@@ -91,25 +91,35 @@ public class Revista extends Entregable {
      */
     public String toString(){
         String msg = "";
-        msg += "Codigo: " + super.getCodReferencia() + "\n";
-        msg += "Nombre: " + getNombre()+ "\n";
+        msg += "\tCodigo: " + super.getCodReferencia() + "\n";
+        msg += "\tNombre: " + getNombre()+ "\n";
         if(isCatalogo()){
-            msg += "Tipo: Catalogo\n";
+            msg += "\tTipo: Catalogo\n";
         }
         else{
-            msg += "Tipo: Revista\n"; 
+            msg += "\tTipo: Revista\n"; 
         }
-        msg += "Tema: " + getTema()+ "\n";
+        msg += "\tTema: " + getTema()+ "\n";
         if(super.getEstadoEntrega()){
-            msg += "Estado:"  + " Entregado\n";
-            msg += "Fecha de entrega: "+ this.fechaEntrega +"\n";
-            msg += "Hora de entrega: "+ this.horaEntrega +"\n";
+            msg += "\tEstado:"  + " Entregado\n";
+            msg += "\tFecha de entrega: "+ this.fechaEntrega +"\n";
+            msg += "\tHora de entrega: "+ this.horaEntrega +"\n";
         }
         else{
-            msg += "Estado:" + " No Entregado\n";
+            msg += "\tEstado:" + " No Entregado\n";
         }
-        msg += "Descripcion: " + super.getDescripcion() + "\n";
-        msg += "Remitente: " + "\n" + "\t" + remitente.toString() + "\n";
+        msg += "\tFecha recepcion: " + super.fechaRecepcion + "\n";
+        msg += "\tDescripcion: " + super.getDescripcion() + "\n";
+        msg += "\tRemitente: " + remitente.toString() + "\n";
+        return msg;
+    }
+    
+    @Override
+    public String toList() {
+        String msg="";
+        msg+="Codigo: "+this.codReferencia;
+        msg+=";Revista de: "+this.remitente;
+        msg+=" Impuesto: "+String.valueOf(calcularImpuesto());
         return msg;
     }
 }
