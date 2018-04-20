@@ -93,6 +93,11 @@ public class Counter implements WSBCCR{
         int i = cantidadEntregables;
         return i;
     }
+    
+    /**
+     * metodo que retorna el primer casillero que este libre en la lista de casilleros
+     * @return 
+     */
     public Casillero getCasilleroLibre(){
         Casillero definitivo = null;
         for(int i = 0; i < casilleros.size(); i++){
@@ -105,6 +110,16 @@ public class Counter implements WSBCCR{
         return definitivo;
     }
             
+    /**
+     * registra un cliente y lo retorna para asignarle ese cliente a un casillero
+     * @param nombre
+     * @param correo
+     * @param telefono
+     * @param direccion
+     * @param sexo
+     * @param fechaNacimiento
+     * @return dicho cliente
+     */
     public Cliente registrarCliente(String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento){
         Cliente aRetornar = null;
         if(clientes.size() < cantidadCasilleros){
@@ -119,6 +134,10 @@ public class Counter implements WSBCCR{
         return aRetornar;
     }
     
+    /**
+     * elimina un cliente segun su id 
+     * @param idCliente 
+     */
     public void eliminarCliente(String idCliente){
         for(int i=0; clientes.size()>i;i++){
             if(clientes.get(i).getIdCliente().equals(idCliente)){
@@ -128,6 +147,10 @@ public class Counter implements WSBCCR{
         }
     }
     
+    /**
+     * consulta un cliente segun un string
+     * @param idCliente 
+     */
     public void consultarCliente(String idCliente){
         Cliente cliente=selecionarCliente(idCliente);
         if("0".equals(cliente.getIdCliente())){
@@ -137,12 +160,20 @@ public class Counter implements WSBCCR{
         }
     }
     
+    /**
+     * consulta todos clientes
+     */
     public void consultarClientes(){
         for(int i=0;clientes.size()>i;i++){
             System.out.println(clientes.get(i).toString());
         }
     }
     
+    /**
+     * retorna al cliente segun el id
+     * @param idCliente
+     * @return 
+     */
     public Cliente selecionarCliente(String idCliente ){
         boolean encontrado=false;
         Cliente cliente=new Cliente();
@@ -159,6 +190,11 @@ public class Counter implements WSBCCR{
         return cliente;
     }
     
+    /**
+     * envia un correo segun un cliente y un mensaje
+     * @param cliente
+     * @param mensaje 
+     */
     public void enviarCorreo(Cliente cliente, String mensaje){ 
         String remitente = "adriangazubg7@gmail.com"; 
         String clave = "OLYOLYOXENFREE"; 
@@ -176,7 +212,7 @@ public class Counter implements WSBCCR{
     try {
         message.setFrom(new InternetAddress(remitente));
         message.addRecipient(Message.RecipientType.TO, new InternetAddress(cliente.getCorreo()));   //Se podrían añadir varios de la misma manera
-        message.setSubject("Notificacion de Aero Pancake, siempre en la arepa voladora");
+        message.setSubject("Notificacion de Aero Pancake, siempre en la arepa voladora. ");
         message.setText(mensaje);
         Transport transport = session.getTransport("smtp");
         transport.connect("smtp.gmail.com", remitente, clave);
@@ -188,6 +224,11 @@ public class Counter implements WSBCCR{
     }
     }
     
+    /**
+     * marca un articulo como recibido
+     * @param entregable
+     * @param idCliente 
+     */
     public void recibirArticulo(Entregable entregable, String idCliente){
         //String idCliente=entregable.destinatario.getIdCliente();
         Cliente cliente=selecionarCliente(idCliente);
@@ -202,6 +243,11 @@ public class Counter implements WSBCCR{
         }
     }
     
+    /**
+     * entrega un articulo
+     * @param idArticulo
+     * @param IDcliente 
+     */
     public void entregarArticulo(String idArticulo, String IDcliente){
         Cliente cliente=selecionarCliente(IDcliente);
         if(cliente.getIdCliente().equals("0")){
@@ -211,6 +257,11 @@ public class Counter implements WSBCCR{
         }
     }
     
+    /**
+     * consulta un casillero segun su id
+     * @param idCasillero
+     * @return 
+     */
     public String consultarCasillero(String idCasillero){
         String res = "";
         boolean encontrado=false;
@@ -224,6 +275,11 @@ public class Counter implements WSBCCR{
         return res;
     }
     
+    /**
+     * consulta un casillero de un cliente segun el id de este cliente
+     * @param idCliente
+     * @return el tostring de casillero
+     */
     public String consultarCasilleroCliente(String idCliente){
         Cliente cliente=selecionarCliente(idCliente);
         String res = "";
@@ -233,6 +289,11 @@ public class Counter implements WSBCCR{
         return res;
     }
     
+    /**
+     * retorna los entregables de una fecha de recepcion
+     * @param fecha
+     * @return 
+     */
     public ArrayList<String> consultEntregableFechaRecepcion(String fecha){
         ArrayList<String> entregables=new ArrayList<>();
         for(Casillero casillero:casilleros){
@@ -248,6 +309,11 @@ public class Counter implements WSBCCR{
         return entregables;
     }
     
+    /**
+     * retorna los entregables de una fecha de entrega
+     * @param fecha
+     * @return 
+     */
     public ArrayList<String> consultEntregableFechaEntrega(String fecha){
         ArrayList<String> entregables=new ArrayList<>();
         for(Casillero casillero:casilleros){
@@ -263,6 +329,10 @@ public class Counter implements WSBCCR{
         return entregables;
     }
     
+    /**
+     * consulta los paquetes sin entregables
+     * @return Arraylist de los entregables
+     */
     public ArrayList<String> consultPaquetesSinEntregar(){
         ArrayList<String> entregables=new ArrayList<>();
         for(Casillero casillero:casilleros){
@@ -278,6 +348,10 @@ public class Counter implements WSBCCR{
         return entregables;
     }
     
+    /**
+     * regresa el arryalist de los clientes con paquetes pendientes
+     * @return 
+     */
     public ArrayList<String> consultClientesPaquetesPendientes(){
         ArrayList<String> clients=new ArrayList<>();
         int i;
@@ -299,10 +373,11 @@ public class Counter implements WSBCCR{
         return clients;
     }
     
-    public void correoTodosPendientes(ArrayList<Cliente> clientus){
-        //clientus.forEach(this::enviarCorreo);
-    }
-    
+    /**
+     * realiza el informe contable segun una fecha dada
+     * @param fecha
+     * @return 
+     */
     public ArrayList<String> informeContable(String fecha){
         ArrayList<String> informe=new ArrayList<>();
         String descontado;
@@ -335,10 +410,15 @@ public class Counter implements WSBCCR{
                 informe.add(informe2);
             }
         }
-        System.out.println("No se despichó tere");
+        //System.out.println("No se despichó tere");
         return informe;
     }
 
+    /**
+     * metodo de la interface WSBCCR
+     * @param fecha
+     * @return el tipo de cambio de compra de esa fecha
+     */
     @Override
     public double obtenerCompraDelTipoDeCambio(String fecha) {
         double res = 0;
@@ -353,6 +433,11 @@ public class Counter implements WSBCCR{
         return res;
     }
 
+    /**
+     * metodo de la interface WSBCCR
+     * @param fecha
+     * @return el tipo de cambio de venta de esa fecha
+     */
     @Override
     public double obtenerVentaDelTipoDeCambio(String fecha) {
         double res = 0;
@@ -367,6 +452,11 @@ public class Counter implements WSBCCR{
         return res;
     }   
     
+    /**
+     * parsea el string del xml para obtener un string del valor
+     * @param xml
+     * @return 
+     */
     private String parsearXML(String xml){
         String res = "";
         int linea = 0;

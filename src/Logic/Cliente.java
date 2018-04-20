@@ -98,6 +98,11 @@ public class Cliente {
         return correo;
     }
 
+    /**
+     * 
+     * @param email
+     * @return true si es valido el correo, false, de lo contrario 
+     */
     public boolean validarCorreo(String email){
         Pattern pattern = Pattern
                 .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
@@ -221,7 +226,10 @@ public class Cliente {
         this.casillero = casillero;
     }
     
-    
+    /**
+     * TOSTRING DE LA CLASE 
+     * @return el string del cliente
+     */
     public String toString(){
         String msg = "";
         msg += "Nombre: " + nombre + "\n";
@@ -232,10 +240,17 @@ public class Cliente {
         msg += "\t" + "Sexo: " + sexo + "\n";
         msg += "\t" + "Fecha de nacimiento: " + fechaNacimiento + "\n";
         msg += "\t" + "Tipo: " + tipo.name() + "\n";
-        msg += "\t" + "Casillero#: " + casillero.getIdCasillero() + "\n";
+        msg += "\t" + "Casillero: #" + casillero.getIdCasillero() + "\n";
         return msg;
     }
     
+    /**
+     * modifica el cliente
+     * @param nombre
+     * @param correo
+     * @param telefono
+     * @param direccion 
+     */
     public void modificarCliente(String nombre, String correo, String telefono, String direccion){
         setNombre(nombre);
         setCorreo(correo);
@@ -243,6 +258,10 @@ public class Cliente {
         setDireccion(direccion);
     } 
 
+    /**
+     * 
+     * @return el string que va al list de awt
+     */
     public String toLst() {
         String msg = "";
         msg += "Nombre: " + nombre + "    ";

@@ -104,6 +104,10 @@ public class Casillero {
         return plataMilestone;
     }
 
+    /**
+     *  actualiza el limite para ser plata
+     * @param nuevo limite del plata
+     */
     public static void setPlataMilestone(int plataMilestone) {
         System.out.println("El rango para ser tipo PLATA ha cambiado, ahora es: "+String.valueOf(plataMilestone)
                 +" los clientes que ya eran tipo PLATA no se veran afectados por este cambio");
@@ -114,6 +118,10 @@ public class Casillero {
         return oroMilestone;
     }
 
+    /**
+     *  actualiza el limite para ser oro
+     * @param nuevo limite del oro
+     */
     public static void setOroMilestone(int oroMilestone) {
         System.out.println("El rango para ser tipo ORO ha cambiado, ahora es: "+String.valueOf(oroMilestone)
                 +" los clientes que ya eran tipo ORO no se veran afectados por este cambio");
@@ -121,7 +129,10 @@ public class Casillero {
     }
     
     
-    
+    /**
+     * toString de la clase
+     * @return el string de la clase
+     */
     public String to_String(){
         String s="";
         s+="ID Casillero: "+this.getIdCasillero()+" \n";
@@ -154,6 +165,10 @@ public class Casillero {
         entregables.add(entregable);
     }
     
+    /**
+     * entrega, valga la redundancia, un entregable
+     * @param identificador del entregable
+     */
     public void entregarEntregable(String idEntregable){
         for (Entregable entregable : entregables) {
             if(entregable.codReferencia.equals(idEntregable)){
@@ -166,6 +181,10 @@ public class Casillero {
         }
     }
     
+    /**
+     * toString de los entregables de un casillero
+     * @return 
+     */
     public String toString(){
         String res = "";
         res += "Casillero: " + IdCasillero + "\n";

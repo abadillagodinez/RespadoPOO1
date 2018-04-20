@@ -124,6 +124,10 @@ public class Paquete extends Entregable{
         return msg;
     }
     
+    /**
+     * toList
+     * @return 
+     */
     @Override
     public String toList() {
         String msg="";

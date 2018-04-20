@@ -115,6 +115,11 @@ public class ConsultaDeFaltantesPorRetirar extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Se ha logrado notificar exitoxamente", "Notificacion", 1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * obtiene el id del cliente segun la linea
+     * @param linea
+     * @return 
+     */
     private String getIDClienteDeLinea(String linea){
         String res = "";
         int cont = 0;
@@ -132,6 +137,11 @@ public class ConsultaDeFaltantesPorRetirar extends javax.swing.JFrame {
         return res;
     }
     
+    /**
+     * obtienen el codigo del entregable segun la linea
+     * @param linea
+     * @return 
+     */
     private String getCodEntregable(String linea){
         String res = "";
         for(int i = 8; i < linea.length(); i++){
@@ -145,6 +155,11 @@ public class ConsultaDeFaltantesPorRetirar extends javax.swing.JFrame {
         return res;
     }
     
+    /**
+     * obtienen el codigo del casillero segun la linea
+     * @param linea
+     * @return 
+     */
     private String getCodCasillero(String linea){
         String res = "";
         int cont = 0;

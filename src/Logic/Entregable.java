@@ -154,7 +154,9 @@ public abstract class Entregable {
         return estadoEntrega;
     }
     
-    
+    /**
+     * actualiza los datos para marcarlo como entregado
+     */
     public void entregar(){
         this.estadoEntrega=true;
         Calendar fecha=Calendar.getInstance();
@@ -169,6 +171,11 @@ public abstract class Entregable {
         this.horaEntrega=hora;
     }
     
+    /**
+     * funcion que identifica el mes
+     * @param s
+     * @return 
+     */
     public String identificarMes(String s){
         int i=0;
         if(null != s.toLowerCase())switch (s.toLowerCase()) {
@@ -220,8 +227,17 @@ public abstract class Entregable {
      */
     public abstract double calcularImpuesto();
     
+    /**
+     * metodo abstracto que hace el toList de todos los hijos
+     * @return 
+     */
     public abstract String toList();
 
+    /**
+     * toLst de los datos generales de cada entregable
+     * @param casillero
+     * @return 
+     */
     public String toLst(Casillero casillero) {
         String res = "";
         String idCliente = casillero.getCliente().getIdCliente();

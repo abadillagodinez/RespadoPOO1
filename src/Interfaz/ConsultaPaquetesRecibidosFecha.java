@@ -144,7 +144,10 @@ public class ConsultaPaquetesRecibidosFecha extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * define los dias con la validacion
+     * @param evt 
+     */
     private void cbxAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAnoActionPerformed
         if(cbxMes.getSelectedItem().equals("01") || cbxMes.getSelectedItem().equals("03") || cbxMes.getSelectedItem().equals("05") || cbxMes.getSelectedItem().equals("07") || cbxMes.getSelectedItem().equals("08") || cbxMes.getSelectedItem().equals("10") || cbxMes.getSelectedItem().equals("12")){
             cbxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
@@ -159,7 +162,10 @@ public class ConsultaPaquetesRecibidosFecha extends javax.swing.JFrame {
             cbxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
         }
     }//GEN-LAST:event_cbxAnoActionPerformed
-
+    /* *
+     * define los dias con la validacion
+     * @param evt 
+     */ 
     private void cbxMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMesActionPerformed
         // TODO add your handling code here:
         if(cbxMes.getSelectedItem().equals("01") || cbxMes.getSelectedItem().equals("03") || cbxMes.getSelectedItem().equals("05") || cbxMes.getSelectedItem().equals("07") || cbxMes.getSelectedItem().equals("08") || cbxMes.getSelectedItem().equals("10") || cbxMes.getSelectedItem().equals("12")){
