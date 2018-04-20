@@ -6,6 +6,7 @@
 
 package Interfaz;
 import Logic.*;
+import java.net.*;
 import javax.swing.JOptionPane;
 /**
  *
@@ -75,15 +76,20 @@ public class MenuInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearCounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCounterActionPerformed
-        String numeroCasilleros = txfNumCasi.getText();
-        if(isInteger(numeroCasilleros) && Integer.parseInt(numeroCasilleros) > 0){
-           Counter counter = new Counter(Integer.parseInt(numeroCasilleros));
-           MenuFuncionalidades menu = new MenuFuncionalidades(counter);
-           menu.setVisible(true);
-           dispose();
+        if(isAvailableInternet()){
+            String numeroCasilleros = txfNumCasi.getText();
+            if(isInteger(numeroCasilleros) && Integer.parseInt(numeroCasilleros) > 0){
+                Counter counter = new Counter(Integer.parseInt(numeroCasilleros));
+                MenuFuncionalidades menu = new MenuFuncionalidades(counter);
+                menu.setVisible(true);
+                dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Ingrese un valor entero o mayor a 0", "Error", 1);
+            }
         }
         else{
-            JOptionPane.showMessageDialog(this, "Ingrese un valor entero o mayor a 0", "Error", 1);
+            JOptionPane.showMessageDialog(this, "No hay conexion a internet", "Error", 1);
         }
     }//GEN-LAST:event_btnCrearCounterActionPerformed
 
@@ -95,6 +101,24 @@ public class MenuInicio extends javax.swing.JFrame {
             return false;
         }
     }
+    
+    private boolean isAvailableInternet(){
+        Socket so = new Socket();
+        InetSocketAddress adress = new InetSocketAddress("www.google.com", 80);
+        try{
+            so.connect(adress, 3000);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+        finally{
+            try{so.close();}
+            catch(Exception e){};
+        }
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearCounter;
     private javax.swing.JLabel lblNumCas;
